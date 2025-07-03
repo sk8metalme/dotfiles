@@ -1,0 +1,13 @@
+// このファイルにキーバインディングを配置してデフォルトを上書きします
+[
+    // ターミナルのフォーカスを切り替えます。実行中のターミナルがない場合は、新しいターミナルを開始します。
+    {
+      "key": "ctrl+enter",
+      "command": "workbench.action.terminal.focus"
+    },
+    {
+      "key": "ctrl+enter",
+      "command": "workbench.action.focusActiveEditorGroup",
+      "when": "terminalFocus"
+    },
+]
