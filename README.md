@@ -26,8 +26,6 @@
 │   ├── setup-vscode.sh         # vscodeのセットアップ
 │   └── setup-zsh.sh            # zshのセットアップ
 ├── .gitconfig                  # Gitの設定ファイル
-├── .gitconfig-personal         # 個人のGitの設定ファイル
-├── .gitconfig-work             # 会社のGitの設定ファイル
 ├── .zshenv                     # 全シェルで適用される設定
 └── .zshrc                      # インタラクティブシェル用の設定
 ```
@@ -43,20 +41,18 @@
 - **.gitconfig-work**: 会社のGitの設定ファイル
 ```zsh
 [user]
-	name = gitアカウントの名前【会社】
-	email = gitアカウントのメアド【会社】
 ```
 
 # zsh環境のセットアップ
 ## 必要なhomebrewパッケージをインストール
 ```zsh
 # 実行権限付与
-chmod +x ~/dotfiles/setup-scripts/install-brew-packages.sh
+chmod +x ~/dotfiles/setup-scripts/install-brew-package.sh
 # 実行
-~/dotfiles/setup-scripts/install-brew-packages.sh
+~/dotfiles/setup-scripts/install-brew-package.sh
 ```
 
-## oh-my-zsh&power10kをインストール
+## oh-my-zshをインストール
 ```zsh
 # 実行権限付与
 chmod +x ~/dotfiles/setup-scripts/install-oh-my-zsh.sh
@@ -102,14 +98,6 @@ chmod +x ~/dotfiles/setup-scripts/install-apps.sh
 chmod +x ~/dotfiles/setup-scripts/setup-vscode.sh
 # 実行
 ~/dotfiles/setup-scripts/setup-vscode.sh
-```
-
-# Cursorのセットアップ
-```zsh
-# 実行権限付与
-chmod +x ~/dotfiles/setup-scripts/setup-cursor.sh
-# 実行
-~/dotfiles/setup-scripts/setup-cursor.sh
 ```
 
 # おすすめサイト
