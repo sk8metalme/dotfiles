@@ -23,6 +23,7 @@ brew install zsh-syntax-highlighting
 brew install nkf
 brew install tree
 brew install git-lfs
+brew install pyenv
 git lfs install
 
 # 完了メッセージ
