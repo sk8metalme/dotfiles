@@ -35,3 +35,6 @@ source $DOTFILES_DIR/config/zsh/functions.zsh
 # wordstyle
 # ------------------------------------------------------------------------
 source $DOTFILES_DIR/config/zsh/wordstyle.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
