@@ -1,0 +1,21 @@
+{
+  "theme": "dark",
+  "editor": {
+    "defaultLanguage": "markdown",
+    "wrapLines": true
+  },
+  "ai": {
+    "temperature": 0.5
+  },
+  "hooks": {},
+  "tools": {
+    "enabled": ["bash", "read", "edit", "write", "glob", "grep"]
+  },
+  "workspace": {
+    "autoSave": true
+  },
+  "env":{
+    "MAX_THINKING_TOKENS": "31999",
+    "ANTHROPIC_MODEL": "claude-opus-4-20250514"
+  }
+}

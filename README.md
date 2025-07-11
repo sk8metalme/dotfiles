@@ -1,11 +1,13 @@
 # dotfilesのディレクトリ構造
-ホームでヒレクトリ直下にクローンすることをおすすめします。（それ以外にクローンする時は、dotfiles/zshenvの以下を編集してください。）
+ホームディレクトリ直下にクローンすることをおすすめします。（それ以外にクローンする時は、dotfiles/zshenvの以下を編集してください。）
 
 コードの解説は[こちら](https://qiita.com/Rockreeee/items/e59b1c4c764d4079c657)
 
 ```zsh
 ~/dotfiles/
 ├── config/
+│   ├── claude/   
+│   │   └── settings.json       # Claude Codeの設定ファイル
 │   ├── vscode/   
 │   │   ├── extensions          # vscodeの拡張機能一覧
 │   │   ├── keybindings.json    # vscodeのキーバインド
@@ -13,18 +15,22 @@
 │   └── zsh/   
 │       ├── alias.zsh           # エイリアスの定義
 │       ├── bindkey.zsh         # キーバインドの定義
-│       ├── completion.zsh      # キーバインドの定義
+│       ├── completion.zsh      # 補完設定の定義
 │       ├── env.zsh             # 環境変数の設定
 │       ├── functions.zsh       # 関数の定義
-│       └── oh-my-zsh.zsh       # oh-my-zshの設定
+│       ├── oh-my-zsh.zsh       # oh-my-zshの設定
+│       └── wordstyle.zsh       # 単語スタイルの設定
 ├── setup-scripts/
 │   ├── install-apps.sh         # アプリのインストール
 │   ├── install-brew-package.sh # homebrewのパッケージインストール
 │   ├── install-oh-my-zsh.sh    # oh-my-zshのインストール
+│   ├── install_claude.sh       # Claude Code設定のセットアップ
+│   ├── install_npm.sh          # Claude Code npmパッケージのインストール
 │   ├── setup-git.sh            # gitのセットアップ
 │   ├── setup-MacOS.sh          # mac設定のセットアップ
 │   ├── setup-vscode.sh         # vscodeのセットアップ
 │   └── setup-zsh.sh            # zshのセットアップ
+├── CLAUDE.md                   # Claude Code用プロジェクト指示書
 ├── .gitconfig                  # Gitの設定ファイル
 ├── .zshenv                     # 全シェルで適用される設定
 └── .zshrc                      # インタラクティブシェル用の設定
@@ -98,6 +104,23 @@ chmod +x ~/dotfiles/setup-scripts/install-apps.sh
 chmod +x ~/dotfiles/setup-scripts/setup-vscode.sh
 # 実行
 ~/dotfiles/setup-scripts/setup-vscode.sh
+```
+
+# Claude Codeのセットアップ
+## Claude Code npmパッケージのインストール
+```zsh
+# 実行権限付与
+chmod +x ~/dotfiles/setup-scripts/install_npm.sh
+# 実行
+~/dotfiles/setup-scripts/install_npm.sh
+```
+
+## Claude Code設定のセットアップ
+```zsh
+# 実行権限付与
+chmod +x ~/dotfiles/setup-scripts/install_claude.sh
+# 実行
+~/dotfiles/setup-scripts/install_claude.sh
 ```
 
 # おすすめサイト
