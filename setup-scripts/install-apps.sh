@@ -20,6 +20,7 @@ brew install --cask iterm2
 # brew install --cask slack
 # brew install --cask zoom
 brew install --cask google-japanese-ime
+brew install uv
 
 # 完了メッセージ
 echo "🤛 Application installation complete!"

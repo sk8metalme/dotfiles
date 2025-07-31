@@ -24,6 +24,7 @@ brew install nkf
 brew install tree
 brew install git-lfs
 brew install pyenv
+brew install openjdk@21
 git lfs install
 
 # 完了メッセージ

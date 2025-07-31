@@ -3,3 +3,5 @@
 .gitconfig
 .DS-store
 .vscode/
+.DS_Store
+config/.DS_Store
