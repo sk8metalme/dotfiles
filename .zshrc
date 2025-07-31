@@ -38,3 +38,11 @@ source $DOTFILES_DIR/config/zsh/wordstyle.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/arigatatsuya/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/arigatatsuya/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/arigatatsuya/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/arigatatsuya/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+. "$HOME/.local/bin/env"
