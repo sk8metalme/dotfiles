@@ -126,3 +126,6 @@ chmod +x ~/dotfiles/setup-scripts/install_claude.sh
 # おすすめサイト
 iterm2の設定：
 https://qiita.com/ruwatana/items/8d9c174250061721ad11
+
+# インストールアプリ
+https://clipy-app.com/
