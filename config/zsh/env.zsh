@@ -26,3 +26,10 @@ export PATH="/opt/homebrew/opt/jpeg/bin:$PATH"
 # ------------------------------------------------------------------------
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
+# ------------------------------------------------------------------------
+# GitHub
+# ------------------------------------------------------------------------
+# GitHubユーザー名（functions.zshのopen-my-repos関数で使用）
+# 必要に応じて自分のGitHubユーザー名に変更してください
+# export GITHUB_USERNAME="your-github-username"
+
