@@ -26,6 +26,7 @@ brew install git-lfs
 brew install pyenv
 brew install openjdk@21
 brew install terminal-notifier
+brew install --cask kap
 git lfs install
 
 # 完了メッセージ

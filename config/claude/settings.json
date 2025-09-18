@@ -16,7 +16,7 @@
   },
   "env":{
     "MAX_THINKING_TOKENS": "31999",
-    "ANTHROPIC_MODEL": "claude-opus-4-20250514"
+    "ANTHROPIC_MODEL": "claude-sonnet-4-20250514"
   },
   "permissions": {
     "allowed": [
