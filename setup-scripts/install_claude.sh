@@ -39,25 +39,31 @@ if [ -d "$DOTFILES_DIR/config/claude/.claude" ]; then
     fi
     
     # Link agents
-    if [ -d "$DOTFILES_DIR/config/claude/.claude/agents" ]; then
-        for agent in "$DOTFILES_DIR/config/claude/.claude/agents"/*; do
+    if [ -d "$DOTFILES_DIR/config/claude/agents" ]; then
+        echo "Linking agents from $DOTFILES_DIR/config/claude/agents"
+        for agent in "$DOTFILES_DIR/config/claude/agents"/*; do
             if [ -f "$agent" ]; then
                 agent_name=$(basename "$agent")
                 ln -sf "$agent" "$CLAUDE_CONFIG_DIR/agents/$agent_name"
                 echo "Linked agent: $agent_name"
             fi
         done
+    else
+        echo "No agents directory found at $DOTFILES_DIR/config/claude/agents"
     fi
     
     # Link commands
-    if [ -d "$DOTFILES_DIR/config/claude/.claude/commands" ]; then
-        for command in "$DOTFILES_DIR/config/claude/.claude/commands"/*; do
+    if [ -d "$DOTFILES_DIR/config/claude/commands" ]; then
+        echo "Linking commands from $DOTFILES_DIR/config/claude/commands"
+        for command in "$DOTFILES_DIR/config/claude/commands"/*; do
             if [ -f "$command" ]; then
                 command_name=$(basename "$command")
                 ln -sf "$command" "$CLAUDE_CONFIG_DIR/commands/$command_name"
                 echo "Linked command: $command_name"
             fi
         done
+    else
+        echo "No commands directory found at $DOTFILES_DIR/config/claude/commands"
     fi
     
     # Link additional settings if they exist
