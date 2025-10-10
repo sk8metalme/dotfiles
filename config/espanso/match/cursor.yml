@@ -1,0 +1,219 @@
+# Cursor IDE向けコードスニペット展開設定
+# プログラミングでよく使用するコードテンプレート
+
+matches:
+  # JavaScript/TypeScript
+  - trigger: ":console"
+    replace: "console.log($|$);"
+
+  - trigger: ":const"
+    replace: "const $|$ = "
+
+  - trigger: ":let"
+    replace: "let $|$ = "
+
+  - trigger: ":func"
+    replace: |
+      function $|$() {
+        
+      }
+
+  - trigger: ":arrow"
+    replace: "const $|$ = () => {"
+
+  - trigger: ":async"
+    replace: |
+      async function $|$() {
+        
+      }
+
+  - trigger: ":await"
+    replace: "await $|$"
+
+  - trigger: ":try"
+    replace: |
+      try {
+        $|$
+      } catch (error) {
+        console.error(error);
+      }
+
+  - trigger: ":import"
+    replace: "import { $|$ } from '';"
+
+  - trigger: ":export"
+    replace: "export { $|$ };"
+
+  # React
+  - trigger: ":component"
+    replace: |
+      const $|$ = () => {
+        return (
+          <div>
+            
+          </div>
+        );
+      };
+      
+      export default $|$;
+
+  - trigger: ":useState"
+    replace: "const [$|$, set$|$] = useState();"
+
+  - trigger: ":useEffect"
+    replace: |
+      useEffect(() => {
+        $|$
+      }, []);
+
+  # Python
+  - trigger: ":def"
+    replace: |
+      def $|$():
+          
+
+  - trigger: ":class"
+    replace: |
+      class $|$:
+          def __init__(self):
+              
+
+  - trigger: ":if"
+    replace: |
+      if $|$:
+          
+
+  - trigger: ":for"
+    replace: |
+      for $|$ in :
+          
+
+  - trigger: ":with"
+    replace: |
+      with open('$|$', 'r') as f:
+          
+
+  - trigger: ":print"
+    replace: "print($|$)"
+
+  # Java
+  - trigger: ":sysout"
+    replace: "System.out.println($|$);"
+
+  - trigger: ":main"
+    replace: |
+      public static void main(String[] args) {
+          $|$
+      }
+
+  - trigger: ":class"
+    replace: |
+      public class $|$ {
+          
+      }
+
+  # Git コマンド
+  - trigger: ":gadd"
+    replace: "git add ."
+
+  - trigger: ":gcommit"
+    replace: "git commit -m \"$|$\""
+
+  - trigger: ":gpush"
+    replace: "git push origin"
+
+  - trigger: ":gpull"
+    replace: "git pull origin"
+
+  - trigger: ":gstatus"
+    replace: "git status"
+
+  - trigger: ":gdiff"
+    replace: "git diff"
+
+  - trigger: ":glog"
+    replace: "git log --oneline"
+
+  # Docker
+  - trigger: ":drun"
+    replace: "docker run -it $|$"
+
+  - trigger: ":dbuild"
+    replace: "docker build -t $|$ ."
+
+  - trigger: ":dps"
+    replace: "docker ps"
+
+  - trigger: ":dexec"
+    replace: "docker exec -it $|$ /bin/bash"
+
+  # SQL
+  - trigger: ":select"
+    replace: "SELECT * FROM $|$ WHERE "
+
+  - trigger: ":insert"
+    replace: "INSERT INTO $|$ () VALUES ();"
+
+  - trigger: ":update"
+    replace: "UPDATE $|$ SET  WHERE ;"
+
+  - trigger: ":delete"
+    replace: "DELETE FROM $|$ WHERE ;"
+
+  # HTML
+  - trigger: ":div"
+    replace: "<div>$|$</div>"
+
+  - trigger: ":span"
+    replace: "<span>$|$</span>"
+
+  - trigger: ":p"
+    replace: "<p>$|$</p>"
+
+  - trigger: ":h1"
+    replace: "<h1>$|$</h1>"
+
+  - trigger: ":a"
+    replace: "<a href=\"$|$\"></a>"
+
+  # CSS
+  - trigger: ":flex"
+    replace: |
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+  - trigger: ":grid"
+    replace: |
+      display: grid;
+      grid-template-columns: $|$;
+
+  # Markdown
+  - trigger: ":code"
+    replace: |
+      ```$|$
+      
+      ```
+
+  - trigger: ":link"
+    replace: "[$|$]()"
+
+  - trigger: ":img"
+    replace: "![$|$]()"
+
+  # コメントテンプレート
+  - trigger: ":comment"
+    replace: |
+      /**
+       * $|$
+       * @param {type} param - description
+       * @returns {type} description
+       */
+
+  - trigger: ":header"
+    replace: |
+      /**
+       * ============================================================================
+       * $|$
+       * ============================================================================
+       */

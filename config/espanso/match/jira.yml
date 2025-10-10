@@ -1,0 +1,315 @@
+# JIRA向けテンプレート展開設定
+# JIRAでよく使用するテンプレートとマークアップ
+
+matches:
+  # 見出し
+  - trigger: ":jh1"
+    replace: "h1. $|$"
+
+  - trigger: ":jh2"
+    replace: "h2. $|$"
+
+  - trigger: ":jh3"
+    replace: "h3. $|$"
+
+  - trigger: ":jh4"
+    replace: "h4. $|$"
+
+  - trigger: ":jh5"
+    replace: "h5. $|$"
+
+  - trigger: ":jh6"
+    replace: "h6. $|$"
+
+  # テキスト装飾
+  - trigger: ":jbold"
+    replace: "*$|$*"
+
+  - trigger: ":jitalic"
+    replace: "_$|$_"
+
+  - trigger: ":junder"
+    replace: "+$|$+"
+
+  - trigger: ":jstrike"
+    replace: "-$|$-"
+
+  - trigger: ":jmono"
+    replace: "{{$|$}}"
+
+  - trigger: ":jsuper"
+    replace: "^$|$^"
+
+  - trigger: ":jsub"
+    replace: "~$|$~"
+
+  # リスト
+  - trigger: ":jul"
+    replace: "* $|$"
+
+  - trigger: ":jol"
+    replace: "# $|$"
+
+  - trigger: ":jnested"
+    replace: "** $|$"
+
+  # リンク
+  - trigger: ":jlink"
+    replace: "[$|$|url]"
+
+  - trigger: ":juser"
+    replace: "[~$|$]"
+
+  - trigger: ":jissue"
+    replace: "[$|$]"
+
+  # コードブロック
+  - trigger: ":jcode"
+    replace: |
+      {code}
+      $|$
+      {code}
+
+  - trigger: ":jcodejs"
+    replace: |
+      {code:javascript}
+      $|$
+      {code}
+
+  - trigger: ":jcodejava"
+    replace: |
+      {code:java}
+      $|$
+      {code}
+
+  - trigger: ":jcodepy"
+    replace: |
+      {code:python}
+      $|$
+      {code}
+
+  - trigger: ":jcodesql"
+    replace: |
+      {code:sql}
+      $|$
+      {code}
+
+  # 引用
+  - trigger: ":jquote"
+    replace: |
+      {quote}
+      $|$
+      {quote}
+
+  # パネル
+  - trigger: ":jpanel"
+    replace: |
+      {panel:title=$|$}
+      内容
+      {panel}
+
+  # テーブル
+  - trigger: ":jtable"
+    replace: |
+      ||見出し1||見出し2||見出し3||
+      |セル1|セル2|セル3|
+      |$|$|||
+
+  - trigger: ":jthead"
+    replace: "||$|$||"
+
+  - trigger: ":jtcell"
+    replace: "|$|$|"
+
+  # 色付きテキスト
+  - trigger: ":jred"
+    replace: "{color:red}$|${color}"
+
+  - trigger: ":jgreen"
+    replace: "{color:green}$|${color}"
+
+  - trigger: ":jblue"
+    replace: "{color:blue}$|${color}"
+
+  - trigger: ":jorange"
+    replace: "{color:orange}$|${color}"
+
+  # アイコン・絵文字
+  - trigger: ":jcheck"
+    replace: "(/)"
+
+  - trigger: ":jcross"
+    replace: "(x)"
+
+  - trigger: ":jinfo"
+    replace: "(i)"
+
+  - trigger: ":jwarn"
+    replace: "(!)"
+
+  - trigger: ":jplus"
+    replace: "(+)"
+
+  - trigger: ":jminus"
+    replace: "(-)"
+
+  - trigger: ":jquestion"
+    replace: "(?)"
+
+  - trigger: ":jbulb"
+    replace: "(on)"
+
+  - trigger: ":jstar"
+    replace: "(*)"
+
+  # 日付・時刻
+  - trigger: ":jtoday"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":jnow"
+    replace: "{{mydatetime}}"
+    vars:
+      - name: mydatetime
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M"
+
+  # よく使用するJIRAテンプレート
+  - trigger: ":bugtemplate"
+    replace: |
+      h3. 概要
+      $|$
+      
+      h3. 再現手順
+      # ステップ1
+      # ステップ2
+      # ステップ3
+      
+      h3. 期待される結果
+      
+      h3. 実際の結果
+      
+      h3. 環境情報
+      * OS: 
+      * ブラウザ: 
+      * バージョン: 
+      
+      h3. 添付ファイル
+      
+      h3. 追加情報
+
+  - trigger: ":tasktemplate"
+    replace: |
+      h3. 概要
+      $|$
+      
+      h3. 受け入れ条件
+      * 条件1
+      * 条件2
+      * 条件3
+      
+      h3. 作業内容
+      # タスク1
+      # タスク2
+      # タスク3
+      
+      h3. 備考
+
+  - trigger: ":storytemplate"
+    replace: |
+      h3. ユーザーストーリー
+      [ユーザー種別]として、[目的]のために、[機能]が欲しい。
+      
+      h3. 受け入れ条件
+      * 条件1
+      * 条件2
+      * 条件3
+      
+      h3. 定義完了条件
+      * [ ] 要件定義完了
+      * [ ] 設計完了
+      * [ ] 実装完了
+      * [ ] テスト完了
+      * [ ] ドキュメント更新完了
+      
+      h3. 備考
+      $|$
+
+  - trigger: ":testcase"
+    replace: |
+      h3. テストケース: $|$
+      
+      h4. 前提条件
+      
+      h4. テスト手順
+      # ステップ1
+      # ステップ2
+      # ステップ3
+      
+      h4. 期待結果
+      
+      h4. 実際結果
+      
+      h4. 結果
+      * (/) 成功
+      * (x) 失敗
+      
+      h4. 備考
+
+  - trigger: ":retrospective"
+    replace: |
+      h2. ふりかえり - {{mydate}}
+      
+      h3. Keep（良かったこと・続けること）
+      * $|$
+      
+      h3. Problem（問題・課題）
+      * 
+      
+      h3. Try（次に試すこと・改善策）
+      * 
+      
+      h3. アクションアイテム
+      ||担当者||アクション||期限||
+      ||||
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":release"
+    replace: |
+      h2. リリースノート - v$|$
+      
+      h3. 新機能
+      * 
+      
+      h3. 改善
+      * 
+      
+      h3. バグ修正
+      * 
+      
+      h3. 既知の問題
+      * 
+      
+      h3. 技術的な変更
+      * 
+
+  - trigger: ":definition"
+    replace: |
+      h3. 完了の定義
+      * [ ] 要件が明確に定義されている
+      * [ ] 設計が完了している
+      * [ ] 実装が完了している
+      * [ ] コードレビューが完了している
+      * [ ] テストが完了している
+      * [ ] ドキュメントが更新されている
+      * [ ] ステークホルダーの承認を得ている
+      $|$

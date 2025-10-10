@@ -26,7 +26,11 @@ brew install git-lfs
 brew install pyenv
 brew install openjdk@21
 brew install terminal-notifier
+brew install espanso         # テキスト展開ツール
 brew install --cask kap
+brew install --cask keyclu
+brew install --cask shortcutdetective
+
 git lfs install
 
 # 完了メッセージ

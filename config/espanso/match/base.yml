@@ -1,0 +1,125 @@
+# 一般的なテキスト展開設定
+# 日常的によく使用するテキストの短縮入力
+
+matches:
+  # 日付・時刻関連
+  - trigger: ":date"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":time"
+    replace: "{{mytime}}"
+    vars:
+      - name: mytime
+        type: date
+        params:
+          format: "%H:%M"
+
+  - trigger: ":datetime"
+    replace: "{{mydatetime}}"
+    vars:
+      - name: mydatetime
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M"
+
+  - trigger: ":timestamp"
+    replace: "{{mytimestamp}}"
+    vars:
+      - name: mytimestamp
+        type: date
+        params:
+          format: "%Y%m%d_%H%M%S"
+
+  # 挨拶・定型文
+  - trigger: ":ohayo"
+    replace: "おはようございます"
+
+  - trigger: ":otsukaresama"
+    replace: "お疲れ様です"
+
+  - trigger: ":yoroshiku"
+    replace: "よろしくお願いいたします"
+
+  - trigger: ":arigatou"
+    replace: "ありがとうございます"
+
+  - trigger: ":sumimasen"
+    replace: "申し訳ございません"
+
+  # ビジネス定型文
+  - trigger: ":kakunin"
+    replace: "ご確認をお願いいたします"
+
+  - trigger: ":renraku"
+    replace: "ご連絡いたします"
+
+  - trigger: ":hokokusho"
+    replace: "進捗報告"
+
+  - trigger: ":kaigi"
+    replace: "会議議事録"
+
+  # 技術関連
+  - trigger: ":todo"
+    replace: "TODO: "
+
+  - trigger: ":fixme"
+    replace: "FIXME: "
+
+  - trigger: ":note"
+    replace: "NOTE: "
+
+  - trigger: ":hack"
+    replace: "HACK: "
+
+  # メールアドレス・連絡先（プレースホルダー）
+  - trigger: ":myemail"
+    replace: "your-email@example.com"
+
+  - trigger: ":myphone"
+    replace: "090-0000-0000"
+
+  # URL関連
+  - trigger: ":github"
+    replace: "https://github.com/"
+
+  - trigger: ":localhost"
+    replace: "http://localhost:3000"
+
+  # 記号・特殊文字
+  - trigger: ":arrow"
+    replace: "→"
+
+  - trigger: ":check"
+    replace: "✓"
+
+  - trigger: ":cross"
+    replace: "✗"
+
+  - trigger: ":star"
+    replace: "★"
+
+  - trigger: ":heart"
+    replace: "♥"
+
+  # 区切り線
+  - trigger: ":line"
+    replace: "----------------------------------------"
+
+  - trigger: ":dline"
+    replace: "========================================"
+
+  # 定型的なコメント
+  - trigger: ":review"
+    replace: "レビューをお願いします"
+
+  - trigger: ":approve"
+    replace: "承認いたします"
+
+  - trigger: ":reject"
+    replace: "修正をお願いします"

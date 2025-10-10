@@ -1,0 +1,266 @@
+# Confluence向けマークアップ展開設定
+# Confluenceでよく使用するマークアップとテンプレート
+
+matches:
+  # 見出し
+  - trigger: ":h1"
+    replace: "h1. $|$"
+
+  - trigger: ":h2"
+    replace: "h2. $|$"
+
+  - trigger: ":h3"
+    replace: "h3. $|$"
+
+  - trigger: ":h4"
+    replace: "h4. $|$"
+
+  - trigger: ":h5"
+    replace: "h5. $|$"
+
+  - trigger: ":h6"
+    replace: "h6. $|$"
+
+  # テキスト装飾
+  - trigger: ":bold"
+    replace: "*$|$*"
+
+  - trigger: ":italic"
+    replace: "_$|$_"
+
+  - trigger: ":underline"
+    replace: "+$|$+"
+
+  - trigger: ":strike"
+    replace: "-$|$-"
+
+  - trigger: ":mono"
+    replace: "{{$|$}}"
+
+  - trigger: ":super"
+    replace: "^$|$^"
+
+  - trigger: ":sub"
+    replace: "~$|$~"
+
+  # リスト
+  - trigger: ":ul"
+    replace: "* $|$"
+
+  - trigger: ":ol"
+    replace: "# $|$"
+
+  - trigger: ":nested"
+    replace: "** $|$"
+
+  # リンク
+  - trigger: ":link"
+    replace: "[$|$|url]"
+
+  - trigger: ":anchor"
+    replace: "{anchor:$|$}"
+
+  - trigger: ":mailto"
+    replace: "[mailto:$|$]"
+
+  # 画像・メディア
+  - trigger: ":img"
+    replace: "!$|$!"
+
+  - trigger: ":thumb"
+    replace: "!$|$|thumbnail!"
+
+  - trigger: ":attach"
+    replace: "!$|$^filename.ext!"
+
+  # テーブル
+  - trigger: ":table"
+    replace: |
+      ||見出し1||見出し2||見出し3||
+      |セル1|セル2|セル3|
+      |$|$|||
+
+  - trigger: ":thead"
+    replace: "||$|$||"
+
+  - trigger: ":tcell"
+    replace: "|$|$|"
+
+  # コードブロック
+  - trigger: ":code"
+    replace: |
+      {code}
+      $|$
+      {code}
+
+  - trigger: ":codejs"
+    replace: |
+      {code:javascript}
+      $|$
+      {code}
+
+  - trigger: ":codejava"
+    replace: |
+      {code:java}
+      $|$
+      {code}
+
+  - trigger: ":codepy"
+    replace: |
+      {code:python}
+      $|$
+      {code}
+
+  - trigger: ":codesql"
+    replace: |
+      {code:sql}
+      $|$
+      {code}
+
+  - trigger: ":codexml"
+    replace: |
+      {code:xml}
+      $|$
+      {code}
+
+  # マクロ
+  - trigger: ":info"
+    replace: |
+      {info}
+      $|$
+      {info}
+
+  - trigger: ":note"
+    replace: |
+      {note}
+      $|$
+      {note}
+
+  - trigger: ":tip"
+    replace: |
+      {tip}
+      $|$
+      {tip}
+
+  - trigger: ":warning"
+    replace: |
+      {warning}
+      $|$
+      {warning}
+
+  - trigger: ":error"
+    replace: |
+      {error}
+      $|$
+      {error}
+
+  - trigger: ":quote"
+    replace: |
+      {quote}
+      $|$
+      {quote}
+
+  - trigger: ":panel"
+    replace: |
+      {panel:title=$|$}
+      内容
+      {panel}
+
+  - trigger: ":expand"
+    replace: |
+      {expand:$|$}
+      内容
+      {expand}
+
+  - trigger: ":toc"
+    replace: "{toc}"
+
+  - trigger: ":children"
+    replace: "{children}"
+
+  - trigger: ":pagetree"
+    replace: "{pagetree}"
+
+  # 日付・時刻
+  - trigger: ":today"
+    replace: "{date}"
+
+  - trigger: ":now"
+    replace: "{time}"
+
+  - trigger: ":user"
+    replace: "{user}"
+
+  # 区切り線
+  - trigger: ":hr"
+    replace: "----"
+
+  # 改行・スペース
+  - trigger: ":br"
+    replace: "\\\\"
+
+  - trigger: ":nbsp"
+    replace: "&nbsp;"
+
+  # 特殊文字
+  - trigger: ":copy"
+    replace: "&copy;"
+
+  - trigger: ":reg"
+    replace: "&reg;"
+
+  - trigger: ":tm"
+    replace: "&trade;"
+
+  # よく使用するテンプレート
+  - trigger: ":meeting"
+    replace: |
+      h2. 会議議事録
+      
+      *日時:* {{mydate}}
+      *参加者:* $|$
+      *議題:* 
+      
+      h3. 議事内容
+      
+      h3. 決定事項
+      
+      h3. アクションアイテム
+      ||担当者||タスク||期限||
+      ||||
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":spec"
+    replace: |
+      h2. 仕様書
+      
+      h3. 概要
+      $|$
+      
+      h3. 要件
+      
+      h3. 仕様詳細
+      
+      h3. 備考
+
+  - trigger: ":report"
+    replace: |
+      h2. 報告書
+      
+      *作成日:* {{mydate}}
+      *作成者:* $|$
+      
+      h3. 概要
+      
+      h3. 詳細
+      
+      h3. 結論・次のアクション
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"

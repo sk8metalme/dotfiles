@@ -16,6 +16,14 @@
 │   ├── codex/
 │   │   ├── config.toml         # Codex設定ファイル
 │   │   └── notify_macos.sh     # macOS通知スクリプト
+│   ├── espanso/                # espanso（テキスト展開ツール）設定
+│   │   ├── config/
+│   │   │   └── default.yml     # espanso基本設定
+│   │   └── match/
+│   │       ├── base.yml        # 一般的なテキスト展開
+│   │       ├── cursor.yml      # Cursor IDE向けスニペット
+│   │       ├── confluence.yml  # Confluence向けマークアップ
+│   │       └── jira.yml        # JIRA向けテンプレート
 │   ├── vscode/   
 │   │   ├── extensions          # vscodeの拡張機能一覧
 │   │   ├── keybindings.json    # vscodeのキーバインド
@@ -34,6 +42,7 @@
 │   ├── install-oh-my-zsh.sh    # oh-my-zshのインストール
 │   ├── install_claude.sh       # Claude Code設定のセットアップ
 │   ├── install_npm.sh          # Claude Code npmパッケージのインストール
+│   ├── setup-espanso.sh        # espansoのセットアップ
 │   ├── setup-git.sh            # gitのセットアップ
 │   ├── setup-MacOS.sh          # mac設定のセットアップ
 │   ├── setup-vscode.sh         # vscodeのセットアップ
@@ -149,6 +158,52 @@ CodexからClaude Codeを呼び出し、複数ターンに渡って協働でき�
 codex <<EOF
 <質問・依頼内容>
 EOF
+```
+
+# espanso（テキスト展開ツール）の設定
+
+## espansoのセットアップ
+```zsh
+# 実行権限付与
+chmod +x ~/dotfiles/setup-scripts/setup-espanso.sh
+# 実行
+~/dotfiles/setup-scripts/setup-espanso.sh
+```
+
+## espanso設定の詳細
+### 設定構成
+- **基本設定**: `config/espanso/config/default.yml` - espansoの動作設定
+- **一般テキスト**: `config/espanso/match/base.yml` - 日付、挨拶文等の展開
+- **Cursor IDE**: `config/espanso/match/cursor.yml` - コードスニペット展開
+- **Confluence**: `config/espanso/match/confluence.yml` - マークアップ展開
+- **JIRA**: `config/espanso/match/jira.yml` - テンプレート展開
+
+### 主要なトリガー例
+#### 一般的なテキスト展開
+- `:date` → 現在の日付（YYYY-MM-DD）
+- `:time` → 現在の時刻（HH:MM）
+- `:ohayo` → おはようございます
+- `:otsukaresama` → お疲れ様です
+- `:arigatou` → ありがとうございます
+
+#### Cursor IDE向けスニペット
+- `:console` → `console.log();`
+- `:func` → JavaScript関数テンプレート
+- `:component` → Reactコンポーネントテンプレート
+- `:def` → Python関数テンプレート
+
+#### Confluence/JIRA向け
+- `:h1` → `h1. 見出し`
+- `:code` → コードブロック
+- `:bugtemplate` → バグレポートテンプレート
+- `:tasktemplate` → タスクテンプレート
+
+### espansoコマンド
+```bash
+espanso status    # ステータス確認
+espanso restart   # 再起動
+espanso stop      # 停止
+espanso start     # 開始
 ```
 
 ## 設定ファイル
