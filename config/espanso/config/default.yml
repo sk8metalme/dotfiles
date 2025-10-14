@@ -9,43 +9,30 @@ paste_shortcut: "CTRL+V"
 # キーボード設定
 toggle_key: "ALT+SPACE"
 search_trigger: "ESC"
+search_shortcut: "ALT+SPACE"
 
 # マッチング設定
-search_shortcut: "ALT+SPACE"
 enable_active: true
-
-# バックスペース設定
 backspace_limit: 3
 
 # ログ設定
 log_level: "INFO"
 
-# 外部コマンド設定
+# セキュリティ設定
 secure_input_notification: true
-
-# ファイル監視設定
-auto_restart: true
 
 # クリップボード設定
 clipboard_threshold: 100
-
-# 遅延設定
-inject_delay: 0
-key_delay: 0
 restore_clipboard_delay: 300
 
-# 検索設定
-search_shortcut: "ALT+SPACE"
+# パフォーマンス設定
+inject_delay: 0
+key_delay: 0
+word_separators: [" ", ",", ".", "?", "!", ";", ":"]
 
 # 除外アプリケーション
 filter_title: ".*Terminal.*|.*iTerm.*"
 filter_class: "terminal"
-
-# プリザーブ設定
-preserve_clipboard: true
-
-# パフォーマンス設定
-word_separators: [" ", ",", ".", "?", "!", ";", ":"]
 
 # 日本語対応
 undo_backspace: true
