@@ -80,7 +80,7 @@ else
 fi
 
 # マッチファイルをコピー
-for match_file in base.yml cursor.yml confluence.yml jira.yml; do
+for match_file in cursor.yml confluence.yml jira.yml; do
     if [ -f "$DOTFILES_ESPANSO_DIR/match/$match_file" ]; then
         cp "$DOTFILES_ESPANSO_DIR/match/$match_file" "$ESPANSO_CONFIG_DIR/match/"
         print_success "$match_file をコピーしました"
@@ -134,13 +134,13 @@ print_success "espansoのセットアップが完了しました！"
 print_info ""
 print_info "使用方法:"
 print_info "  - トリガーを入力してテキストを展開"
-print_info "  - 例: ':date' → 現在の日付"
-print_info "  - 例: ':ohayo' → おはようございます"
+print_info "  - 例（Cursor IDE内）: ':console' → console.log();"
+print_info "  - 例（Confluence）: ':h1' → h1. 見出し"
+print_info "  - 例（JIRA）: ':bugtemplate' → バグレポートテンプレート"
 print_info "  - ALT+SPACE でespansoの検索画面を開く"
 print_info ""
 print_info "設定ファイル:"
 print_info "  - 基本設定: ~/.config/espanso/config/default.yml"
-print_info "  - 一般テキスト: ~/.config/espanso/match/base.yml"
 print_info "  - Cursor IDE: ~/.config/espanso/match/cursor.yml"
 print_info "  - Confluence: ~/.config/espanso/match/confluence.yml"
 print_info "  - JIRA: ~/.config/espanso/match/jira.yml"

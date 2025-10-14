@@ -1,5 +1,11 @@
 # Confluence向けマークアップ展開設定
 # Confluenceでよく使用するマークアップとテンプレート
+#
+# このファイルのトリガーはConfluenceページ（ブラウザ）内でのみ有効です
+# 他のアプリケーション（Cursor IDEなど）では無効化されます
+
+# Confluenceページでのみ有効にするフィルター設定
+filter_title: "regex:.*(Confluence|confluence).*"
 
 matches:
   # 見出し

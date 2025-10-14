@@ -1,5 +1,11 @@
 # Cursor IDE向けコードスニペット展開設定
 # プログラミングでよく使用するコードテンプレート
+# 
+# このファイルのトリガーはCursor IDE内でのみ有効です
+# 他のアプリケーション（ブラウザでのConfluence編集など）では無効化されます
+
+# Cursor IDEでのみ有効にするフィルター設定
+filter_title: "regex:.*Cursor.*"
 
 matches:
   # JavaScript/TypeScript
