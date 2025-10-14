@@ -7,7 +7,7 @@ preserve_clipboard: true
 paste_shortcut: "CTRL+V"
 
 # キーボード設定
-toggle_key: "ALT+SPACE"
+toggle_key: "ALT+SHIFT+SPACE"
 search_trigger: "ESC"
 search_shortcut: "ALT+SPACE"
 
