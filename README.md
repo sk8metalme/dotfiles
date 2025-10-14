@@ -20,6 +20,7 @@
 │   │   ├── config/
 │   │   │   └── default.yml     # espanso基本設定
 │   │   └── match/
+│   │       ├── qqq.yml         # 一般的なテキスト展開（Cursor/Confluence/JIRA以外で有効）
 │   │       ├── cursor.yml      # Cursor IDE向けスニペット（Cursor内でのみ有効）
 │   │       ├── confluence.yml  # Confluence向けマークアップ（Confluenceページでのみ有効）
 │   │       └── jira.yml        # JIRA向けテンプレート（JIRAページでのみ有効）
@@ -172,19 +173,29 @@ chmod +x ~/dotfiles/setup-scripts/setup-espanso.sh
 ## espanso設定の詳細
 ### 設定構成
 - **基本設定**: `config/espanso/config/default.yml` - espansoの動作設定
+- **一般テキスト**: `config/espanso/match/qqq.yml` - 汎用テキスト展開（Cursor/Confluence/JIRA以外で有効）
 - **Cursor IDE**: `config/espanso/match/cursor.yml` - コードスニペット展開（Cursor内でのみ有効）
 - **Confluence**: `config/espanso/match/confluence.yml` - マークアップ展開（Confluenceページでのみ有効）
 - **JIRA**: `config/espanso/match/jira.yml` - テンプレート展開（JIRAページでのみ有効）
 
 ### トリガーの衝突回避
 各マッチファイルはアプリケーションフィルターを使用して、特定のコンテキストでのみ有効化されます：
+- **qqq.yml**: Cursor/Confluence/JIRA以外の全アプリケーションで有効
 - **cursor.yml**: Cursorウィンドウでのみトリガーが有効
 - **confluence.yml**: Confluenceページでのみトリガーが有効
 - **jira.yml**: JIRAページでのみトリガーが有効
 
-これにより、同じトリガー（例：`:h1`、`:code`）でも、使用中のアプリケーションに応じて異なる展開が適用されます。
+これにより、同じトリガー（例：`:h1`、`:code`、`:arrow`）でも、使用中のアプリケーションに応じて異なる展開が適用されます。
 
 ### 主要なトリガー例
+#### 一般的なテキスト展開（Cursor/Confluence/JIRA以外で有効）
+- `:date` → 現在の日付（YYYY-MM-DD）
+- `:time` → 現在の時刻（HH:MM）
+- `:ohayo` → おはようございます
+- `:otsukaresama` → お疲れ様です
+- `:arrow` → →
+- `:check` → ✓
+
 #### Cursor IDE向けスニペット（Cursor内でのみ有効）
 - `:console` → `console.log();`
 - `:func` → JavaScript関数テンプレート

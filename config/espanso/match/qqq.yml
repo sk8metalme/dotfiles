@@ -1,5 +1,11 @@
 # 一般的なテキスト展開設定
 # 日常的によく使用するテキストの短縮入力
+#
+# このファイルのトリガーはCursor IDE、Confluence、JIRA以外のアプリケーションで有効です
+# 専用のマッチファイルがある環境では無効化されます
+
+# 専用設定があるアプリケーションでは無効化
+filter_title: "regex:^(?!.*(Cursor|Confluence|confluence|JIRA|Jira|jira)).*"
 
 matches:
   # 日付・時刻関連
