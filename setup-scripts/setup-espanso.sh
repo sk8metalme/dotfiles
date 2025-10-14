@@ -91,7 +91,7 @@ done
 
 # 設定ファイルの権限を設定
 print_info "設定ファイルの権限を設定します..."
-chmod -R 644 "$ESPANSO_CONFIG_DIR"
+find "$ESPANSO_CONFIG_DIR" -type f -exec chmod 644 {} \;
 find "$ESPANSO_CONFIG_DIR" -type d -exec chmod 755 {} \;
 
 # espansoサービスを停止（既に実行中の場合）
