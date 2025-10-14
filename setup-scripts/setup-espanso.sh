@@ -150,3 +150,4 @@ print_info "  - espanso status    # ステータス確認"
 print_info "  - espanso restart   # 再起動"
 print_info "  - espanso stop      # 停止"
 print_info "  - espanso start     # 開始"
+

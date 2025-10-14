@@ -49,3 +49,4 @@ word_separators: [" ", ",", ".", "?", "!", ";", ":"]
 
 # 日本語対応
 undo_backspace: true
+
