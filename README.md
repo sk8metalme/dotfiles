@@ -287,5 +287,8 @@ CODEX_DEBUG=1 ~/.codex/notify_macos.sh "テスト" "確認"
 iterm2の設定：
 https://qiita.com/ruwatana/items/8d9c174250061721ad11
 
+# トラックボール　カーソルスクロール
+https://qiita.com/zyyx-matsushita/items/070f7e9d021ac099b5e2
+
 # インストールアプリ
 https://clipy-app.com/
