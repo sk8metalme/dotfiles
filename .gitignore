@@ -5,3 +5,4 @@
 .vscode/
 .DS_Store
 config/.DS_Store
+.cursor/
