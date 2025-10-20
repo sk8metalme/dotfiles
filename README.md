@@ -16,6 +16,16 @@
 │   ├── codex/
 │   │   ├── config.toml         # Codex設定ファイル
 │   │   └── notify_macos.sh     # macOS通知スクリプト
+│   ├── espanso/                # espanso（テキスト展開ツール）設定
+│   │   ├── config/
+│   │   │   └── default.yml     # espanso基本設定
+│   │   └── match/
+│   │       ├── qqq.yml         # 一般的なテキスト展開（Cursor/Confluence/JIRA以外で有効）
+│   │       ├── cursor.yml      # Cursor IDE向けスニペット（Cursor内でのみ有効）
+│   │       ├── confluence.yml  # Confluence向けマークアップ（Confluenceページでのみ有効）
+│   │       └── jira.yml        # JIRA向けテンプレート（JIRAページでのみ有効）
+│   ├── hammerspoon/            # Hammerspoon（ウィンドウ管理・自動化ツール）設定
+│   │   └── init.lua            # Hammerspoon設定ファイル
 │   ├── vscode/   
 │   │   ├── extensions          # vscodeの拡張機能一覧
 │   │   ├── keybindings.json    # vscodeのキーバインド
@@ -34,6 +44,8 @@
 │   ├── install-oh-my-zsh.sh    # oh-my-zshのインストール
 │   ├── install_claude.sh       # Claude Code設定のセットアップ
 │   ├── install_npm.sh          # Claude Code npmパッケージのインストール
+│   ├── setup-espanso.sh        # espansoのセットアップ
+│   ├── setup-hammerspoon.sh    # Hammerspoonのセットアップ
 │   ├── setup-git.sh            # gitのセットアップ
 │   ├── setup-MacOS.sh          # mac設定のセットアップ
 │   ├── setup-vscode.sh         # vscodeのセットアップ
@@ -149,6 +161,105 @@ CodexからClaude Codeを呼び出し、複数ターンに渡って協働でき�
 codex <<EOF
 <質問・依頼内容>
 EOF
+```
+
+# espanso（テキスト展開ツール）の設定
+
+## espansoのセットアップ
+```zsh
+# 実行権限付与
+chmod +x ~/dotfiles/setup-scripts/setup-espanso.sh
+# 実行
+~/dotfiles/setup-scripts/setup-espanso.sh
+```
+
+## espanso設定の詳細
+### 設定構成
+- **基本設定**: `config/espanso/config/default.yml` - espansoの動作設定
+- **一般テキスト**: `config/espanso/match/qqq.yml` - 汎用テキスト展開（Cursor/Confluence/JIRA以外で有効）
+- **Cursor IDE**: `config/espanso/match/cursor.yml` - コードスニペット展開（Cursor内でのみ有効）
+- **Confluence**: `config/espanso/match/confluence.yml` - マークアップ展開（Confluenceページでのみ有効）
+- **JIRA**: `config/espanso/match/jira.yml` - テンプレート展開（JIRAページでのみ有効）
+
+### トリガーの衝突回避
+各マッチファイルはアプリケーションフィルターを使用して、特定のコンテキストでのみ有効化されます：
+- **qqq.yml**: Cursor/Confluence/JIRA以外の全アプリケーションで有効
+- **cursor.yml**: Cursorウィンドウでのみトリガーが有効
+- **confluence.yml**: Confluenceページでのみトリガーが有効
+- **jira.yml**: JIRAページでのみトリガーが有効
+
+これにより、同じトリガー（例：`:h1`、`:code`、`:arrow`）でも、使用中のアプリケーションに応じて異なる展開が適用されます。
+
+### 主要なトリガー例
+#### 一般的なテキスト展開（Cursor/Confluence/JIRA以外で有効）
+- `:date` → 現在の日付（YYYY-MM-DD）
+- `:time` → 現在の時刻（HH:MM）
+- `:ohayo` → おはようございます
+- `:otsukaresama` → お疲れ様です
+- `:arrow` → →
+- `:check` → ✓
+
+#### Cursor IDE向けスニペット（Cursor内でのみ有効）
+- `:console` → `console.log();`
+- `:func` → JavaScript関数テンプレート
+- `:component` → Reactコンポーネントテンプレート
+- `:def` → Python関数テンプレート
+
+#### Confluence向け（Confluenceページでのみ有効）
+- `:h1` → `h1. 見出し`
+- `:code` → Confluenceコードブロック
+- `:info` → infoマクロ
+- `:meeting` → 会議議事録テンプレート
+
+#### JIRA向け（JIRAページでのみ有効）
+- `:jh1` → `h1. 見出し`
+- `:jcode` → JIRAコードブロック
+- `:bugtemplate` → バグレポートテンプレート
+- `:tasktemplate` → タスクテンプレート
+
+### espansoコマンド
+```bash
+espanso status    # ステータス確認
+espanso restart   # 再起動
+espanso stop      # 停止
+espanso start     # 開始
+```
+
+# Hammerspoon（ウィンドウ管理・自動化ツール）の設定
+
+## Hammerspoonのセットアップ
+```zsh
+# 実行権限付与
+chmod +x ~/dotfiles/setup-scripts/setup-hammerspoon.sh
+# 実行
+~/dotfiles/setup-scripts/setup-hammerspoon.sh
+```
+
+## Hammerspoon設定の詳細
+### 初回起動時の設定
+1. セットアップスクリプト実行後、Hammerspoonを起動してください
+   ```bash
+   open /Applications/Hammerspoon.app
+   ```
+2. アクセシビリティ権限の許可を求められるので、システム設定から許可してください
+   - システム設定 > プライバシーとセキュリティ > アクセシビリティ
+3. Hammerspoonが自動的に設定ファイルを読み込みます
+
+### 主な機能
+#### 右クリックスクロール機能
+マウスの右ボタンをドラッグすることでスムーズなスクロールが可能です：
+- **右クリック + ドラッグ**: スクロール操作
+- **右クリック（ドラッグせず）**: 通常の右クリックメニュー表示
+
+この機能により、トラックパッドを使わずにマウスだけで快適にスクロールできます。
+
+### 設定ファイルの編集
+設定をカスタマイズする場合は、以下のファイルを編集してください：
+```bash
+# 設定ファイルを編集
+code ~/dotfiles/config/hammerspoon/init.lua
+
+# 編集後、Hammerspoon内でリロードするか、再起動してください
 ```
 
 ## 設定ファイル
