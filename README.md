@@ -10,6 +10,7 @@
 │   │   ├── config/
 │   │   │   └── default.yml     # espansoのメイン設定
 │   │   └── match/
+│   │       ├── ai-coding-prompts.yml # AIコーディング支援プロンプト
 │   │       ├── ai-tools.yml    # AIツール関連のスニペット
 │   │       ├── base.yml        # 基本的なスニペット
 │   │       ├── code-phrases.yml # コードフレーズ
@@ -119,6 +120,72 @@ chmod +x ~/dotfiles/setup-scripts/setup-espanso.sh
 # 実行
 ~/dotfiles/setup-scripts/setup-espanso.sh
 ```
+
+## Espanso - AIコーディング支援機能
+生成AI（Claude、ChatGPT、Copilotなど）を使ったコーディングに便利なプロンプトテンプレート集を用意しています。
+
+### 主な機能
+
+#### コードレビュー
+- `:airv` - コードレビュー依頼（詳細）
+- `:airvja` - コードレビュー依頼（日本語）
+
+#### リファクタリング
+- `:airf` - リファクタリング依頼
+- `:airfclean` - クリーンコード原則でリファクタリング
+
+#### バグ修正・デバッグ
+- `:aibug` - バグ修正依頼
+- `:aierr` - エラー解決依頼
+- `:aidebug` - デバッグ支援
+- `:aifix` - クイック修正
+
+#### テスト
+- `:aitest` - ユニットテスト生成
+- `:aitdd` - TDDアプローチでのテスト作成
+
+#### ドキュメント
+- `:aidoc` - コードドキュメント生成
+- `:aireadme` - README作成
+- `:aicommit` - コミットメッセージ生成
+
+#### コード説明・学習
+- `:aiex` - コード説明（初心者向け）
+- `:aiexstep` - 1行ずつ詳しく説明
+- `:ailearn` - 技術学習支援
+
+#### コード生成
+- `:aigen` - 要件からコード生成
+- `:aifunc` - 関数実装
+- `:aiapi` - API設計
+
+#### 最適化・セキュリティ
+- `:aiperf` - パフォーマンス最適化
+- `:aiopt` - 一般的な最適化
+- `:aisec` - セキュリティチェック
+
+#### その他
+- `:aiarch` - アーキテクチャ設計
+- `:aibp` - ベストプラクティス確認
+- `:aiconv` - コード変換
+- `:aicomp` - コード比較
+- `:aipair` - ペアプログラミング風
+
+#### 日本語プロンプト
+- `:あいれびゅー` - コードレビュー（日本語）
+- `:あいせつめい` - コード説明（日本語）
+- `:あいてすと` - テスト作成（日本語）
+
+### 使用例
+1. テキストエディタやIDEで `:airv` と入力
+2. Espansoがプロンプトテンプレートに展開
+3. `$|$` の位置にコードを貼り付け
+4. AIツール（Claude、ChatGPT等）にコピー&ペースト
+
+### Tips
+- `$|$` はカーソル位置を示すプレースホルダーです
+- プロンプトは自由にカスタマイズ可能です
+- `config/espanso/match/ai-coding-prompts.yml` を編集してください
 
 # おすすめサイト
 iterm2の設定：
