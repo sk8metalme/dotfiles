@@ -1,0 +1,10 @@
+matches:
+  - trigger: ":ok"
+    replace: "ESPANSO_WORKING"
+  
+  - trigger: ":rb"
+    replace: "Ruby"
+  
+  - trigger: "ルビー"
+    replace: "Ruby"
+    word: false

@@ -1,0 +1,61 @@
+matches:
+  # バージョン管理
+  - trigger: "じっとはぶ"
+    replace: "GitHub"
+    word: true
+  
+  - trigger: "じっとらぼ"
+    replace: "GitLab"
+    word: true
+  
+  - trigger: "びっとばけっと"
+    replace: "Bitbucket"
+    word: true
+  
+  # プロジェクト管理
+  - trigger: "じら"
+    replace: "Jira"
+    word: true
+  
+  - trigger: "こんふるえんす"
+    replace: "Confluence"
+    word: true
+  
+  - trigger: "あさな"
+    replace: "Asana"
+    word: true
+  
+  - trigger: "とれろ"
+    replace: "Trello"
+    word: true
+  
+  # コミュニケーション
+  - trigger: "すらっく"
+    replace: "Slack"
+    word: true
+  
+  - trigger: "ちーむず"
+    replace: "Teams"
+    word: true
+  
+  # コンテナ・インフラ
+  - trigger: "どっかー"
+    replace: "Docker"
+    word: true
+  
+  - trigger: "くーばねてぃす"
+    replace: "Kubernetes"
+    word: true
+  
+  - trigger: "てらふぉーむ"
+    replace: "Terraform"
+    word: true
+  
+  # CI/CD
+  - trigger: "じぇんきんす"
+    replace: "Jenkins"
+    word: true
+  
+  - trigger: "ぎっとはぶあくしょんず"
+    replace: "GitHub Actions"
+    word: true

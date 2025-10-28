@@ -6,6 +6,17 @@
 ```zsh
 ~/dotfiles/
 ├── config/
+│   ├── espanso/
+│   │   ├── config/
+│   │   │   └── default.yml     # espansoのメイン設定
+│   │   └── match/
+│   │       ├── ai-tools.yml    # AIツール関連のスニペット
+│   │       ├── base.yml        # 基本的なスニペット
+│   │       ├── code-phrases.yml # コードフレーズ
+│   │       ├── frameworks.yml  # フレームワーク関連
+│   │       ├── programming-lang.yml # プログラミング言語関連
+│   │       ├── tech-terms.yml  # 技術用語
+│   │       └── tools.yml       # ツール関連
 │   ├── vscode/   
 │   │   ├── extensions          # vscodeの拡張機能一覧
 │   │   ├── keybindings.json    # vscodeのキーバインド
@@ -21,6 +32,7 @@
 │   ├── install-apps.sh         # アプリのインストール
 │   ├── install-brew-package.sh # homebrewのパッケージインストール
 │   ├── install-oh-my-zsh.sh    # oh-my-zshのインストール
+│   ├── setup-espanso.sh        # espansoのセットアップ
 │   ├── setup-git.sh            # gitのセットアップ
 │   ├── setup-MacOS.sh          # mac設定のセットアップ
 │   ├── setup-vscode.sh         # vscodeのセットアップ
@@ -98,6 +110,14 @@ chmod +x ~/dotfiles/setup-scripts/install-apps.sh
 chmod +x ~/dotfiles/setup-scripts/setup-vscode.sh
 # 実行
 ~/dotfiles/setup-scripts/setup-vscode.sh
+```
+
+# Espansoのセットアップ
+```zsh
+# 実行権限付与
+chmod +x ~/dotfiles/setup-scripts/setup-espanso.sh
+# 実行
+~/dotfiles/setup-scripts/setup-espanso.sh
 ```
 
 # おすすめサイト
