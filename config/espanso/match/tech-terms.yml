@@ -37,7 +37,11 @@ matches:
   - trigger: "まいえすきゅーえる"
     replace: "MySQL"
     word: true
-  
+
+  - trigger: "おらくる"
+    replace: "Oracle"
+    word: true
+
   - trigger: "ぽすとぐれえすきゅーえる"
     replace: "PostgreSQL"
     word: true

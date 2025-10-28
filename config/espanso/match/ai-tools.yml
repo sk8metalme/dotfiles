@@ -11,6 +11,10 @@ matches:
   - trigger: "じぇみない"
     replace: "Gemini"
     word: true
+    
+  - trigger: "じぇみに"
+    replace: "Gemini"
+    word: true
   
   - trigger: "こぱいろっと"
     replace: "Copilot"
@@ -23,7 +27,11 @@ matches:
   - trigger: "かーさー"
     replace: "Cursor"
     word: true
-  
+
+  - trigger: "かーそる"
+    replace: "Cursor"
+    word: true
+
   - trigger: "みっどじゃーにー"
     replace: "Midjourney"
     word: true
