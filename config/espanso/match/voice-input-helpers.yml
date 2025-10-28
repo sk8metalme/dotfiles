@@ -367,7 +367,7 @@ matches:
     replace: "×"
     propagate_case: false
   
-  - trigger: "まる"
+  - trigger: "まるえん"
     replace: "○"
     propagate_case: false
   
@@ -423,20 +423,8 @@ matches:
     propagate_case: false
 
   # 数字・単位（音声入力しやすい）
-  - trigger: "ぱーせんと"
-    replace: "%"
-    propagate_case: false
-  
-  - trigger: "どっと"
-    replace: "."
-    propagate_case: false
-  
   - trigger: "えん"
     replace: "円"
-    propagate_case: false
-  
-  - trigger: "どる"
-    replace: "$"
     propagate_case: false
   
   - trigger: "ぴーえむ"
