@@ -65,7 +65,14 @@ FZF-EOF"
 
 # 自分のGitHub Repositoryをクエリして開く
 function open-my-repos() {
-    local github_username="sk8metalme"
+    # GitHubユーザー名を環境変数から取得、設定されていない場合はgit configから取得
+    local github_username="${GITHUB_USERNAME:-$(git config --global user.name 2>/dev/null)}"
+    
+    if [ -z "$github_username" ]; then
+        echo "Error: GitHub username not found. Please set GITHUB_USERNAME environment variable or configure git user.name"
+        return 1
+    fi
+    
     local selected_repo=$(curl -s https://api.github.com/users/${github_username}/repos | jq -r ".[].full_name" | fzf --height 40% --reverse)
 
     if [ -n "$selected_repo" ]; then

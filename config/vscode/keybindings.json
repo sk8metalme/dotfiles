@@ -9,5 +9,5 @@
       "key": "ctrl+enter",
       "command": "workbench.action.focusActiveEditorGroup",
       "when": "terminalFocus"
-    },
+    }
 ]
