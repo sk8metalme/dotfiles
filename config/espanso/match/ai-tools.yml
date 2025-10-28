@@ -1,0 +1,58 @@
+matches:
+  # AI製品
+  - trigger: "ちゃっとじーぴーてぃー"
+    replace: "ChatGPT"
+    word: true
+  
+  - trigger: "くろーど"
+    replace: "Claude"
+    word: true
+  
+  - trigger: "じぇみない"
+    replace: "Gemini"
+    word: true
+    
+  - trigger: "じぇみに"
+    replace: "Gemini"
+    word: true
+  
+  - trigger: "こぱいろっと"
+    replace: "Copilot"
+    word: true
+  
+  - trigger: "ぎっとはぶこぱいろっと"
+    replace: "GitHub Copilot"
+    word: true
+  
+  - trigger: "かーさー"
+    replace: "Cursor"
+    word: true
+
+  - trigger: "かーそる"
+    replace: "Cursor"
+    word: true
+
+  - trigger: "みっどじゃーにー"
+    replace: "Midjourney"
+    word: true
+  
+  - trigger: "すのー"
+    replace: "Suno"
+    word: true
+  
+  # AI技術
+  - trigger: "えるえるえむ"
+    replace: "LLM"
+    word: true
+  
+  - trigger: "ぷろんぷとえんじにありんぐ"
+    replace: "Prompt Engineering"
+    word: true
+  
+  - trigger: "あーるえーじー"
+    replace: "RAG"
+    word: true
+  
+  - trigger: "ふぁいんちゅーにんぐ"
+    replace: "Fine-tuning"
+    word: true

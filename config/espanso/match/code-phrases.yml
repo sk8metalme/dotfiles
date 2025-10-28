@@ -1,0 +1,30 @@
+matches:
+  # コメント
+  - trigger: "とぅどぅ"
+    replace: "TODO: "
+  
+  - trigger: "ふぃっくすみー"
+    replace: "FIXME: "
+  
+  - trigger: "のーと"
+    replace: "NOTE: "
+  
+  # ログ
+  - trigger: "こんそーるろぐ"
+    replace: "console.log()"
+    cursor: -1  # カーソルを括弧内に
+  
+  - trigger: "ぷりんと"
+    replace: "print()"
+    cursor: -1
+
+  # アロー関数
+  - trigger: "あろー"
+    replace: " => "
+  
+  # 比較演算子
+  - trigger: "とりぷるいこーる"
+    replace: " === "
+  
+  - trigger: "のっといこーる"
+    replace: " !== "

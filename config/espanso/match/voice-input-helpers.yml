@@ -1,0 +1,487 @@
+matches:
+  # 句読点・記号（音声入力しやすい）
+  - trigger: "まる"
+    replace: "。"
+    propagate_case: false
+    word: true
+  
+  - trigger: "てん"
+    replace: "、"
+    propagate_case: false
+    word: true
+  
+  - trigger: "なかてん"
+    replace: "・"
+    propagate_case: false
+    word: true
+  
+  - trigger: "かっこ"
+    replace: "（）"
+    propagate_case: false
+    cursor: -1
+  
+  - trigger: "かぎかっこ"
+    replace: "「」"
+    propagate_case: false
+    cursor: -1
+  
+  - trigger: "にじゅうかぎかっこ"
+    replace: "『』"
+    propagate_case: false
+    cursor: -1
+  
+  - trigger: "やまかっこ"
+    replace: "〈〉"
+    propagate_case: false
+    cursor: -1
+  
+  - trigger: "すみつきかっこ"
+    replace: "【】"
+    propagate_case: false
+    cursor: -1
+  
+  - trigger: "ころん"
+    replace: "："
+    propagate_case: false
+  
+  - trigger: "せみころん"
+    replace: "；"
+    propagate_case: false
+  
+  - trigger: "なかぽつ"
+    replace: "・"
+    propagate_case: false
+  
+  - trigger: "さんてんりーだー"
+    replace: "…"
+    propagate_case: false
+  
+  - trigger: "びっくり"
+    replace: "！"
+    propagate_case: false
+  
+  - trigger: "はてな"
+    replace: "？"
+    propagate_case: false
+  
+  # コードブロック（音声入力用）
+  - trigger: "こーどぶろっく"
+    replace: |
+      ```
+      $|$
+      ```
+    propagate_case: false
+  
+  - trigger: "ぱいそんこーど"
+    replace: |
+      ```python
+      $|$
+      ```
+    propagate_case: false
+  
+  - trigger: "じゃばすくりぷとこーど"
+    replace: |
+      ```javascript
+      $|$
+      ```
+    propagate_case: false
+  
+  - trigger: "たいぷすくりぷとこーど"
+    replace: |
+      ```typescript
+      $|$
+      ```
+    propagate_case: false
+  
+  - trigger: "ばっしゅこーど"
+    replace: |
+      ```bash
+      $|$
+      ```
+    propagate_case: false
+
+  # フォーマット・レイアウト
+  - trigger: "かいぎょう"
+    replace: "\n"
+    propagate_case: false
+  
+  - trigger: "にかいぎょう"
+    replace: "\n\n"
+    propagate_case: false
+  
+  - trigger: "たぶ"
+    replace: "    "
+    propagate_case: false
+  
+  - trigger: "すぺーす"
+    replace: " "
+    propagate_case: false
+  
+  - trigger: "ぜんかくすぺーす"
+    replace: "　"
+    propagate_case: false
+
+  # Markdown記法（音声入力用）
+  - trigger: "みだし１"
+    replace: "# "
+    propagate_case: false
+  
+  - trigger: "みだし２"
+    replace: "## "
+    propagate_case: false
+  
+  - trigger: "みだし３"
+    replace: "### "
+    propagate_case: false
+  
+  - trigger: "みだし４"
+    replace: "#### "
+    propagate_case: false
+  
+  - trigger: "ぼーるど"
+    replace: "****"
+    propagate_case: false
+    cursor: -2
+  
+  - trigger: "いたりっく"
+    replace: "**"
+    propagate_case: false
+    cursor: -1
+  
+  - trigger: "りすと"
+    replace: "- "
+    propagate_case: false
+  
+  - trigger: "ばんごうりすと"
+    replace: "1. "
+    propagate_case: false
+  
+  - trigger: "いんようふ"
+    replace: "> "
+    propagate_case: false
+  
+  - trigger: "すいへいせん"
+    replace: "\n---\n"
+    propagate_case: false
+  
+  - trigger: "りんく"
+    replace: "[]()"
+    propagate_case: false
+    cursor: -3
+  
+  - trigger: "がぞう"
+    replace: "![]()"
+    propagate_case: false
+    cursor: -3
+  
+  - trigger: "いんらいんこーど"
+    replace: "``"
+    propagate_case: false
+    cursor: -1
+
+  # よく使う記号（音声入力しやすい形式）
+  - trigger: "あっとまーく"
+    replace: "@"
+    propagate_case: false
+  
+  - trigger: "しゃーぷ"
+    replace: "#"
+    propagate_case: false
+  
+  - trigger: "どる"
+    replace: "$"
+    propagate_case: false
+  
+  - trigger: "ぱーせんと"
+    replace: "%"
+    propagate_case: false
+  
+  - trigger: "あんど"
+    replace: "&"
+    propagate_case: false
+  
+  - trigger: "あすたりすく"
+    replace: "*"
+    propagate_case: false
+  
+  - trigger: "ぷらす"
+    replace: "+"
+    propagate_case: false
+  
+  - trigger: "まいなす"
+    replace: "-"
+    propagate_case: false
+  
+  - trigger: "いこーる"
+    replace: "="
+    propagate_case: false
+  
+  - trigger: "あんだーばー"
+    replace: "_"
+    propagate_case: false
+  
+  - trigger: "ぱいぷ"
+    replace: "|"
+    propagate_case: false
+  
+  - trigger: "えんまーく"
+    replace: "¥"
+    propagate_case: false
+  
+  - trigger: "すらっしゅ"
+    replace: "/"
+    propagate_case: false
+  
+  - trigger: "ばっくすらっしゅ"
+    replace: "\\"
+    propagate_case: false
+  
+  - trigger: "ちるだ"
+    replace: "~"
+    propagate_case: false
+  
+  - trigger: "はっと"
+    replace: "^"
+    propagate_case: false
+
+  # プログラミング記号（音声入力用）
+  - trigger: "だぶるこーと"
+    replace: "\"\""
+    propagate_case: false
+    cursor: -1
+  
+  - trigger: "しんぐるこーと"
+    replace: "''"
+    propagate_case: false
+    cursor: -1
+  
+  - trigger: "ばっくこーと"
+    replace: "``"
+    propagate_case: false
+    cursor: -1
+  
+  - trigger: "だいなり"
+    replace: ">"
+    propagate_case: false
+  
+  - trigger: "しょうなり"
+    replace: "<"
+    propagate_case: false
+  
+  - trigger: "だいなりいこーる"
+    replace: ">="
+    propagate_case: false
+  
+  - trigger: "しょうなりいこーる"
+    replace: "<="
+    propagate_case: false
+  
+  - trigger: "のっといこーる"
+    replace: "!="
+    propagate_case: false
+  
+  - trigger: "だぶるいこーる"
+    replace: "=="
+    propagate_case: false
+  
+  - trigger: "とりぷるいこーる"
+    replace: "==="
+    propagate_case: false
+  
+  - trigger: "あろーふぁんくしょん"
+    replace: " => "
+    propagate_case: false
+  
+  - trigger: "どっと"
+    replace: "."
+    propagate_case: false
+  
+  - trigger: "こんま"
+    replace: ","
+    propagate_case: false
+
+  # HTML/XML タグ（音声入力用）
+  - trigger: "でぃぶたぐ"
+    replace: "<div></div>"
+    propagate_case: false
+    cursor: -6
+  
+  - trigger: "すぱんたぐ"
+    replace: "<span></span>"
+    propagate_case: false
+    cursor: -7
+  
+  - trigger: "ぴーたぐ"
+    replace: "<p></p>"
+    propagate_case: false
+    cursor: -4
+  
+  - trigger: "えーたぐ"
+    replace: "<a href=\"\"></a>"
+    propagate_case: false
+    cursor: -6
+  
+  - trigger: "いめーじたぐ"
+    replace: "<img src=\"\" alt=\"\">"
+    propagate_case: false
+    cursor: -8
+
+  # 数式・特殊文字
+  - trigger: "ぷらすまいなす"
+    replace: "±"
+    propagate_case: false
+  
+  - trigger: "かける"
+    replace: "×"
+    propagate_case: false
+  
+  - trigger: "わる"
+    replace: "÷"
+    propagate_case: false
+  
+  - trigger: "やじるし"
+    replace: "→"
+    propagate_case: false
+  
+  - trigger: "ひだりやじるし"
+    replace: "←"
+    propagate_case: false
+  
+  - trigger: "うえやじるし"
+    replace: "↑"
+    propagate_case: false
+  
+  - trigger: "したやじるし"
+    replace: "↓"
+    propagate_case: false
+  
+  - trigger: "にじゅうやじるし"
+    replace: "⇒"
+    propagate_case: false
+  
+  - trigger: "ちぇっく"
+    replace: "✓"
+    propagate_case: false
+  
+  - trigger: "ばつ"
+    replace: "×"
+    propagate_case: false
+  
+  - trigger: "まるえん"
+    replace: "○"
+    propagate_case: false
+  
+  - trigger: "さんかく"
+    replace: "△"
+    propagate_case: false
+  
+  - trigger: "しかく"
+    replace: "□"
+    propagate_case: false
+
+  # テキスト編集コマンド風（音声入力で便利）
+  - trigger: "とぅどぅー"
+    replace: "TODO: "
+    propagate_case: false
+  
+  - trigger: "のーと"
+    replace: "NOTE: "
+    propagate_case: false
+  
+  - trigger: "わーにんぐ"
+    replace: "WARNING: "
+    propagate_case: false
+  
+  - trigger: "ふぃっくすみー"
+    replace: "FIXME: "
+    propagate_case: false
+  
+  - trigger: "はっく"
+    replace: "HACK: "
+    propagate_case: false
+
+  # 日付・時刻（音声入力用）
+  - trigger: "きょうのひづけ"
+    replace: "{{today}}"
+    propagate_case: false
+  
+  - trigger: "いまのじかん"
+    replace: "{{time}}"
+    propagate_case: false
+
+  # よく使うフレーズ（音声入力版）
+  - trigger: "めーるあどれす"
+    replace: "email@example.com"
+    propagate_case: false
+  
+  - trigger: "ぎっとはぶ"
+    replace: "GitHub"
+    propagate_case: false
+  
+  - trigger: "すたっくおーばーふろー"
+    replace: "Stack Overflow"
+    propagate_case: false
+
+  # 数字・単位（音声入力しやすい）
+  - trigger: "えん"
+    replace: "円"
+    propagate_case: false
+  
+  - trigger: "ぴーえむ"
+    replace: "PM"
+    propagate_case: false
+  
+  - trigger: "えーえむ"
+    replace: "AM"
+    propagate_case: false
+
+  # スペースと区切り（音声入力用）
+  - trigger: "くうはく"
+    replace: " "
+    propagate_case: false
+  
+  - trigger: "ぜんかくくうはく"
+    replace: "　"
+    propagate_case: false
+  
+  - trigger: "はいふん"
+    replace: "-"
+    propagate_case: false
+  
+  - trigger: "あんだーすこあ"
+    replace: "_"
+    propagate_case: false
+
+  # エモジ（音声入力用）
+  - trigger: "えもじちぇっく"
+    replace: "✅"
+    propagate_case: false
+  
+  - trigger: "えもじばつ"
+    replace: "❌"
+    propagate_case: false
+  
+  - trigger: "えもじわーにんぐ"
+    replace: "⚠️"
+    propagate_case: false
+  
+  - trigger: "えもじいんふぉ"
+    replace: "ℹ️"
+    propagate_case: false
+  
+  - trigger: "えもじでんきゅう"
+    replace: "💡"
+    propagate_case: false
+  
+  - trigger: "えもじろけっと"
+    replace: "🚀"
+    propagate_case: false
+  
+  - trigger: "えもじほし"
+    replace: "⭐"
+    propagate_case: false
+  
+  - trigger: "えもじはーと"
+    replace: "❤️"
+    propagate_case: false
+

@@ -1,0 +1,85 @@
+matches:
+  # API関連
+  - trigger: "えーぴーあい"
+    replace: "API"
+    word: true
+  
+  - trigger: "れすとえーぴーあい"
+    replace: "REST API"
+    word: true
+  
+  - trigger: "ぐらふきゅーえる"
+    replace: "GraphQL"
+    word: true
+  
+  # データ形式
+  - trigger: "じぇーそん"
+    replace: "JSON"
+    word: true
+  
+  - trigger: "えっくすえむえる"
+    replace: "XML"
+    word: true
+  
+  - trigger: "やむる"
+    replace: "YAML"
+    word: true
+  
+  # データベース
+  - trigger: "えすきゅーえる"
+    replace: "SQL"
+    word: true
+  
+  - trigger: "のーえすきゅーえる"
+    replace: "NoSQL"
+    word: true
+  
+  - trigger: "まいえすきゅーえる"
+    replace: "MySQL"
+    word: true
+
+  - trigger: "おらくる"
+    replace: "Oracle"
+    word: true
+
+  - trigger: "ぽすとぐれえすきゅーえる"
+    replace: "PostgreSQL"
+    word: true
+  
+  - trigger: "もんごでぃーびー"
+    replace: "MongoDB"
+    word: true
+  
+  - trigger: "れでぃす"
+    replace: "Redis"
+    word: true
+  
+  # アーキテクチャ
+  - trigger: "まいくろさーびす"
+    replace: "Microservices"
+    word: true
+  
+  - trigger: "さーばーれす"
+    replace: "Serverless"
+    word: true
+  
+  - trigger: "くらうど"
+    replace: "Cloud"
+    word: true
+  
+  # セキュリティ
+  - trigger: "おーす"
+    replace: "OAuth"
+    word: true
+  
+  - trigger: "じぇーだぶりゅーてぃー"
+    replace: "JWT"
+    word: true
+  
+  - trigger: "えすえすえる"
+    replace: "SSL"
+    word: true
+  
+  - trigger: "てぃーえるえす"
+    replace: "TLS"
+    word: true
