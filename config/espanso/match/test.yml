@@ -1,0 +1,4 @@
+matches:
+  - trigger: "るびー"
+    replace: "Ruby"
+    word: false

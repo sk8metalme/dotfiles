@@ -1,0 +1,57 @@
+matches:
+  # word: false で前後のスペース不要
+  - trigger: "ルビー"
+    replace: "Ruby"
+    word: false
+  
+  - trigger: "るびー"
+    replace: "Ruby"
+    word: false
+  
+  - trigger: "ジャバスクリプト"
+    replace: "JavaScript"
+    word: false
+  
+  - trigger: "じゃばすくりぷと"
+    replace: "JavaScript"
+    word: false
+  
+  - trigger: "タイプスクリプト"
+    replace: "TypeScript"
+    word: false
+  
+  - trigger: "たいぷすくりぷと"
+    replace: "TypeScript"
+    word: false
+  
+  - trigger: "パイソン"
+    replace: "Python"
+    word: false
+  
+  - trigger: "ぱいそん"
+    replace: "Python"
+    word: false
+  
+  - trigger: "ジャバ"
+    replace: "Java"
+    word: false
+  
+  - trigger: "じゃば"
+    replace: "Java"
+    word: false
+  
+  - trigger: "ピーエイチピー"
+    replace: "PHP"
+    word: false
+  
+  - trigger: "ぴーえいちぴー"
+    replace: "PHP"
+    word: false
+  
+  - trigger: "ノードジェーエス"
+    replace: "Node.js"
+    word: false
+  
+  - trigger: "のーどじぇーえす"
+    replace: "Node.js"
+    word: false

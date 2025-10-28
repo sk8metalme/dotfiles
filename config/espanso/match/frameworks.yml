@@ -1,0 +1,46 @@
+matches:
+  # フロントエンド
+  - trigger: "りあくと"
+    replace: "React"
+    word: true
+  
+  - trigger: "びゅー"
+    replace: "Vue"
+    word: true
+  
+  - trigger: "ねくすとじぇーえす"
+    replace: "Next.js"
+    word: true
+  
+  - trigger: "にゅーくすと"
+    replace: "Nuxt"
+    word: true
+  
+  - trigger: "あんぎゅらー"
+    replace: "Angular"
+    word: true
+  
+  # バックエンド
+  - trigger: "すぷりんぐぶーと"
+    replace: "Spring Boot"
+    word: true
+  
+  - trigger: "すぷりんぐ"
+    replace: "Spring"
+    word: true
+  
+  - trigger: "じゃんご"
+    replace: "Django"
+    word: true
+  
+  - trigger: "ふらすく"
+    replace: "Flask"
+    word: true
+  
+  - trigger: "えくすぷれす"
+    replace: "Express"
+    word: true
+  
+  - trigger: "ねすとじぇーえす"
+    replace: "NestJS"
+    word: true
