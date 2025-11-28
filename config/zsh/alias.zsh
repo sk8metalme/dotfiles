@@ -34,3 +34,11 @@ alias gsla='git_stash_list_action'
 # ------------------------------------------------------------------------
 alias yolo="claude --dangerously-skip-permissions"
 
+# ------------------------------------------------------------------------
+# jujutsu
+# ------------------------------------------------------------------------
+alias jja='jj config list |  grep --color=auto alias'
+alias ljj='lazyjj'
+
+
+

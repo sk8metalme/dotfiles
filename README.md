@@ -99,6 +99,16 @@ chmod +x ~/dotfiles/setup-scripts/setup-zsh.sh
 ~/dotfiles/setup-scripts/setup-zsh.sh
 ```
 
+# プログラミングフォントのインストール
+
+`install-brew-package.sh` を実行すると、以下のフォントが自動インストールされます：
+
+- **JetBrains Mono**: 合字対応のプログラミングフォント
+- **HackGen**: 日本語に最適化されたプログラミングフォント
+- **Ricty Diminished**: 日本語プログラミングフォント
+
+VS Codeの設定 (`config/vscode/settings.json`) でこれらのフォントが使用されます。
+
 # gitのセットアップ
 ```zsh
 # 実行権限付与
