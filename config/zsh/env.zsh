@@ -33,3 +33,11 @@ export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 # 必要に応じて自分のGitHubユーザー名に変更してください
 # export GITHUB_USERNAME="your-github-username"
 
+# ------------------------------------------------------------------------
+# bun
+# ------------------------------------------------------------------------
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+# bun completions
+[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+
