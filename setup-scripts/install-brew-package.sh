@@ -29,5 +29,12 @@ brew install terminal-notifier
 brew install --cask kap
 git lfs install
 
+# プログラミングフォントのインストール
+echo "💪 Installing programming fonts..."
+brew tap homebrew/cask-fonts
+brew install --cask font-jetbrains-mono
+brew install --cask font-hackgen
+brew install --cask font-ricty-diminished
+
 # 完了メッセージ
 echo "🤛 Application installation complete!"

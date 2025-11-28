@@ -21,3 +21,7 @@ else
     echo "Installation may have failed. Please check the output above for errors."
     exit 1
 fi
+
+# safe-chain https://github.com/AikidoSec/safe-chain
+echo "Installing safe-chain via npm..."
+npm install -g @aikidosec/safe-chain
