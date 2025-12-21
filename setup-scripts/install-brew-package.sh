@@ -27,6 +27,8 @@ brew install pyenv
 brew install openjdk@21
 brew install terminal-notifier
 brew install --cask kap
+brew install --cask ghostty
+
 git lfs install
 
 # プログラミングフォントのインストール
