@@ -93,5 +93,5 @@
   "gitlens.ai.vscode.model": "copilot:gpt-4o",
   "claudeCode.preferredLocation": "panel",
   "terminal.integrated.defaultProfile.osx": "zsh",
-  "workbench.colorCustomizations": {
+  "workbench.colorCustomizations": {}
 }
