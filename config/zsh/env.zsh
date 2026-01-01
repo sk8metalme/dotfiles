@@ -4,6 +4,8 @@
 export NODENV_ROOT="$HOME/.nodenv"
 export PATH="$NODENV_ROOT/bin:$PATH"
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+# claude code memory leak resolve
+export NODE_OPTIONS="--max-old-space-size=4096"
 
 # ------------------------------------------------------------------------
 # pyenv
@@ -41,3 +43,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # bun completions
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
+
+export PATH="$HOME/bin:$PATH"

@@ -17,5 +17,13 @@
             "text": "\u001b\r"
         },
         "when": "terminalFocus"
+    },
+    {
+      "key": "alt+p",
+      "command": "peacock.changeColorToFavorite"
+    },
+    {
+      "key": "alt+'",
+      "command": "workbench.action.terminal.changeColor"
     }
 ]

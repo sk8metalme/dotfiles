@@ -8,7 +8,8 @@
   "claudeCode.selectedModel": "default",
   "redhat.telemetry.enabled": true,
   "editor.fontFamily": "'JetBrains Mono', 'Ricty Diminished', 'HackGen Console', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 14,
+  "editor.fontSize": 20
+  ,
   "editor.fontLigatures": true,
   "editor.quickSuggestions": {
     "other": "on",
@@ -28,7 +29,7 @@
   "editor.detectIndentation": true,
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
-  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontSize": 16,
   "terminal.integrated.fontFamily": "'JetBrains Mono', 'HackGen Console', Menlo, Monaco",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
@@ -60,7 +61,7 @@
   "git.enableSmartCommit": true,
   "git.suggestSmartCommit": true,
   "workbench.startupEditor": "none",
-  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreview": true,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.value": 10,
   "breadcrumbs.enabled": true,
@@ -89,5 +90,8 @@
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "gitlens.ai.model": "vscode",
-  "gitlens.ai.vscode.model": "copilot:gpt-4o"
+  "gitlens.ai.vscode.model": "copilot:gpt-4o",
+  "claudeCode.preferredLocation": "panel",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "workbench.colorCustomizations": {
 }
