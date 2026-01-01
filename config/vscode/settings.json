@@ -8,8 +8,7 @@
   "claudeCode.selectedModel": "default",
   "redhat.telemetry.enabled": true,
   "editor.fontFamily": "'JetBrains Mono', 'Ricty Diminished', 'HackGen Console', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 20
-  ,
+  "editor.fontSize": 20,
   "editor.fontLigatures": true,
   "editor.quickSuggestions": {
     "other": "on",
