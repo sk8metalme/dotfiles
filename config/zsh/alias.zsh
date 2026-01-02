@@ -32,9 +32,9 @@ alias python='python3'
 alias gsla='git_stash_list_action'
 
 # ------------------------------------------------------------------------
-# claude 
+# claude
 # ------------------------------------------------------------------------
-alias yolo="ENABLE_TOOL_SEARCH=true; ENABLE_EXPERIMENTAL_MCP_CLI=false; claude --dangerously-skip-permissions"
+alias yolo="ENABLE_TOOL_SEARCH=true ENABLE_EXPERIMENTAL_MCP_CLI=false claude --dangerously-skip-permissions"
 
 # ------------------------------------------------------------------------
 # jujutsu
