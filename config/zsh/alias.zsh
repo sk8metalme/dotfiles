@@ -6,6 +6,8 @@ alias gc='git commit'
 alias gl='fshow'
 alias gsl='git stash list'
 alias gitmy='open-my-repos'
+alias gsync='git switch main && git pull origin main && git fetch origin'
+alias gst='git status'
 
 # ------------------------------------------------------------------------
 # ls
@@ -30,9 +32,9 @@ alias python='python3'
 alias gsla='git_stash_list_action'
 
 # ------------------------------------------------------------------------
-# claude 
+# claude
 # ------------------------------------------------------------------------
-alias yolo="claude --dangerously-skip-permissions"
+alias yolo="ENABLE_TOOL_SEARCH=true ENABLE_EXPERIMENTAL_MCP_CLI=false claude --dangerously-skip-permissions"
 
 # ------------------------------------------------------------------------
 # jujutsu
