@@ -15,4 +15,6 @@ bindkey '^r' fzf-select-history
 
 bindkey '^t' fzf-cdr
 
+bindkey '^G' fzf-ghq
+
 bindkey '^X' zsh_convert_all

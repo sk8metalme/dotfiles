@@ -31,6 +31,28 @@ function fzf-cdr() {
 }
 zle -N fzf-cdr
 
+# ghq管理下のリポジトリからfzfを使ってインタラクティブに選択し、選択したリポジトリに移動します。
+function fzf-ghq() {
+    local selected_repo=$(ghq list | fzf --reverse --height 40% --preview "
+        dir=\$(ghq root)/{}
+        if [ -f \"\$dir/README.md\" ]; then
+            bat --color=always --style=numbers --line-range=:30 \"\$dir/README.md\" 2>/dev/null
+        elif [ -f \"\$dir/readme.md\" ]; then
+            bat --color=always --style=numbers --line-range=:30 \"\$dir/readme.md\" 2>/dev/null
+        else
+            echo 'No README found'
+            echo ''
+            ls -la \"\$dir\" 2>/dev/null
+        fi
+    ")
+    if [ -n "$selected_repo" ]; then
+        BUFFER="cd $(ghq root)/$selected_repo"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N fzf-ghq
+
 # ------------------------------------------------------------------------
 # Git
 # ------------------------------------------------------------------------

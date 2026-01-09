@@ -23,6 +23,7 @@ brew install zsh-syntax-highlighting
 brew install nkf
 brew install tree
 brew install git-lfs
+brew install ghq        # Gitリポジトリ管理ツール
 brew install pyenv
 brew install openjdk@21
 brew install terminal-notifier

@@ -117,6 +117,61 @@ chmod +x ~/dotfiles/setup-scripts/setup-git.sh
 ~/dotfiles/setup-scripts/setup-git.sh
 ```
 
+# ghqのセットアップ
+
+ghqはGitリポジトリを一元管理するツールです。fzfと連携してインタラクティブにリポジトリを移動できます。
+
+## 設定内容
+- **GHQ_ROOT**: `~/Work/git`
+- **キーバインド**: `Ctrl+G` でfzfを使ったリポジトリ選択
+
+## 初回セットアップ
+
+### 1. リポジトリルートディレクトリの作成
+```zsh
+mkdir -p ~/Work/git
+```
+
+### 2. ghqのインストール（install-brew-package.shで自動実行済み）
+```zsh
+# すでに install-brew-package.sh を実行済みの場合は不要
+brew install ghq
+```
+
+## 使い方
+
+### リポジトリの取得
+```zsh
+# GitHubリポジトリをclone
+ghq get https://github.com/user/repo
+
+# または短縮形
+ghq get user/repo
+```
+
+### リポジトリへの移動
+```zsh
+# Ctrl+G を押すとfzfでリポジトリ一覧が表示されます
+# ↑↓キーで選択してEnterを押すとそのリポジトリに移動します
+# プレビューでREADME.mdが表示されます
+```
+
+### リポジトリ一覧の表示
+```zsh
+ghq list
+```
+
+### リポジトリのパスを取得
+```zsh
+ghq list -p
+ghq root  # ルートディレクトリのパスを表示
+```
+
+## 依存関係
+- `ghq`: Gitリポジトリ管理ツール（install-brew-package.shでインストール）
+- `fzf`: ファジーファインダー（install-brew-package.shでインストール済み）
+- `bat`: READMEプレビュー用（install-brew-package.shでインストール済み）
+
 # Macのセットアップ
 ```zsh
 # 実行権限付与
