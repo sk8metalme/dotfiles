@@ -43,4 +43,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # bun completions
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
+# ------------------------------------------------------------------------
+# ghq
+# ------------------------------------------------------------------------
+export GHQ_ROOT="$HOME/Work/git"
+
 export PATH="$HOME/bin:$PATH"
