@@ -12,14 +12,6 @@
 
 ## セットアップ方法
 
-### 自動セットアップ（推奨）
-
-```bash
-./setup-scripts/setup-raycast.sh
-```
-
-### 手動セットアップ
-
 1. Raycastを起動
 2. `Settings...` を開く（`⌘,`）
 3. `Advanced` タブを選択

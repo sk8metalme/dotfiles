@@ -30,7 +30,6 @@
 │   ├── install-oh-my-zsh.sh    # oh-my-zshのインストール
 │   ├── setup-hammerspoon.sh    # Hammerspoonのセットアップ
 │   ├── setup-MacOS.sh          # mac設定のセットアップ
-│   ├── setup-raycast.sh        # Raycastのセットアップ
 │   ├── setup-vscode.sh         # vscodeのセットアップ
 │   └── setup-zsh.sh            # zshのセットアップ
 ├── CLAUDE.md                   # Claude Code用プロジェクト指示書
@@ -172,14 +171,7 @@ brew install --cask raycast
 
 ## 設定のセットアップ
 
-```zsh
-# 実行権限付与
-chmod +x ~/dotfiles/setup-scripts/setup-raycast.sh
-# 実行
-~/dotfiles/setup-scripts/setup-raycast.sh
-```
-
-このスクリプトは、Raycast の設定ファイルをインポートする手順を案内します。
+Raycastの設定は手動でインポートする必要があります。
 
 ## 設定の管理
 

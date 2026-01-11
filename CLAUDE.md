@@ -22,7 +22,6 @@ This is a personal dotfiles repository that manages macOS development environmen
   - `install-oh-my-zsh.sh`: Install Oh My Zsh
   - `setup-hammerspoon.sh`: Configure Hammerspoon symlinks
   - `setup-MacOS.sh`: Configure macOS system preferences
-  - `setup-raycast.sh`: Guide Raycast configuration import
   - `setup-vscode.sh`: Configure VSCode symlinks
   - `setup-zsh.sh`: Configure Zsh symlinks
 - **README.md**: Comprehensive setup guide in Japanese
