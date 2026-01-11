@@ -4,23 +4,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a personal dotfiles repository that manages macOS development environment configurations including shell, editor, and text expansion tools.
+This is a personal dotfiles repository that manages macOS development environment configurations including shell, editor, window management, and productivity tools.
 
 ## Current Structure
 
 - **config/**: Configuration files organized by application
-  - **espanso/**: Text expansion tool configurations
-    - `config/default.yml`: Main Espanso settings
-    - `match/*.yml`: Snippet definitions (AI tools, programming languages, frameworks, etc.)
+  - **hammerspoon/**: Window management and automation tool configurations
+    - `init.lua`: Main Hammerspoon configuration
+  - **raycast/**: Productivity launcher and tool configurations
+    - `settings.rayconfig`: Raycast settings export file
   - **vscode/**: Visual Studio Code settings and extensions list
   - **zsh/**: Zsh shell configuration split into modular files
 - **setup-scripts/**: Automated setup scripts for each tool
-  - `setup-espanso.sh`: Creates symlinks for Espanso configurations
-  - `setup-vscode.sh`: Sets up VSCode settings
-  - `setup-zsh.sh`: Sets up Zsh configurations
-  - And other installation/setup scripts
+  - `install-apps.sh`: Install macOS applications
+  - `install-brew-package.sh`: Install Homebrew packages
+  - `install-bun.sh`: Install Bun JavaScript runtime
+  - `install-oh-my-zsh.sh`: Install Oh My Zsh
+  - `setup-hammerspoon.sh`: Configure Hammerspoon symlinks
+  - `setup-MacOS.sh`: Configure macOS system preferences
+  - `setup-raycast.sh`: Guide Raycast configuration import
+  - `setup-vscode.sh`: Configure VSCode symlinks
+  - `setup-zsh.sh`: Configure Zsh symlinks
 - **README.md**: Comprehensive setup guide in Japanese
-- **.zshrc, .zshenv**: Zsh initialization files (root level)
+- **.zshrc, .zshenv, .gitconfig**: Configuration files at root level
 
 ## Development Workflow
 
@@ -31,13 +37,6 @@ This dotfiles repository uses symlinks to manage configurations:
 3. **Changes** made in repository automatically reflect in the applications
 4. **Version control** tracks all configuration changes via Git
 
-### Working with Espanso
-
-- Edit snippet files in `config/espanso/match/*.yml`
-- Changes are immediately available (symlinked to `~/.config/espanso/`)
-- Run `espanso restart` after major configuration changes
-- All snippets are version controlled and portable
-
 ### Setup Process
 
 Each tool has its own setup script in `setup-scripts/`:
@@ -46,14 +45,21 @@ Each tool has its own setup script in `setup-scripts/`:
 - Establishes symlinks to repository files
 - Performs tool-specific initialization
 
+### Working with Hammerspoon
+
+- Edit configuration in `config/hammerspoon/init.lua`
+- Changes are immediately available (symlinked to `~/.hammerspoon/`)
+- Reload Hammerspoon configuration after changes
+- All configurations are version controlled and portable
+
 ## Common Dotfiles Patterns
 
 Managed configurations in this repository:
 - **Shell**: `.zshrc`, `.zshenv`, `config/zsh/*.zsh`
-- **Git**: `.gitconfig` (with personal/work separation)
+- **Git**: `.gitconfig`
 - **Editors**: VSCode settings in `config/vscode/`
-- **Text Expansion**: Espanso configurations in `config/espanso/`
-- **Development tools**: Tool-specific configs stored in `config/`
+- **Window Management**: Hammerspoon automation in `config/hammerspoon/`
+- **Productivity Tools**: Raycast settings in `config/raycast/`
 
 ## Installation Strategy
 
@@ -61,5 +67,5 @@ This repository implements:
 - ✅ **Backup existing configs** before linking (timestamped backups)
 - ✅ **Selective installation** via individual setup scripts
 - ✅ **OS-specific configurations** (macOS focused)
-- ✅ **Dependency checking** within setup scripts (e.g., checking if espanso is installed)
+- ✅ **Dependency checking** within setup scripts
 - ✅ **Modular structure** for easy maintenance and extension

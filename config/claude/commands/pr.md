@@ -1,1 +1,0 @@
-@manager-agent ghコマンドでPR作成してください
