@@ -27,8 +27,8 @@ brew install ghq        # Gitリポジトリ管理ツール
 brew install pyenv
 brew install openjdk@21
 brew install terminal-notifier
-brew install --cask kap
-brew install --cask ghostty
+# brew install --cask kap
+# brew install --cask ghostty
 brew install --cask raycast
 
 git lfs install
