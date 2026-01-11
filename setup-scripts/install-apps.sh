@@ -14,12 +14,11 @@ brew update
 
 # アプリケーションのインストール
 echo "💪 Installing applications..."
-brew install --cask google-chrome
+# brew install --cask google-chrome
 brew install --cask visual-studio-code
 brew install --cask iterm2
 # brew install --cask slack
 # brew install --cask zoom
-brew install --cask google-japanese-ime
 brew install --cask hammerspoon
 brew install uv
 
