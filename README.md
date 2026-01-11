@@ -8,6 +8,8 @@
 ├── config/
 │   ├── hammerspoon/            # Hammerspoon（ウィンドウ管理・自動化ツール）設定
 │   │   └── init.lua            # Hammerspoon設定ファイル
+│   ├── iTerm2/                 # iTerm2（ターミナルエミュレータ）設定
+│   │   └── Default.json        # iTerm2プロファイル設定
 │   ├── raycast/                # Raycast（ランチャー・生産性向上ツール）設定
 │   │   ├── README.md           # Raycast設定の説明
 │   │   └── settings.rayconfig  # Raycast設定ファイル
@@ -154,6 +156,33 @@ chmod +x ~/dotfiles/setup-scripts/setup-vscode.sh
 ~/dotfiles/setup-scripts/setup-vscode.sh
 ```
 
+
+# iTerm2のセットアップ
+
+iTerm2 は macOS 用の高機能ターミナルエミュレータです。
+
+## iTerm2 のインストール
+
+```zsh
+brew install --cask iterm2
+```
+
+## プロファイルのインポート
+
+1. iTerm2 を起動
+2. `⌘,` で設定を開き、`Profiles` を選択
+3. 左下の `Other Actions...` をクリック
+4. `Import JSON Profiles...` を選択
+5. `~/dotfiles/config/iTerm2/Default.json` を選択
+
+## プロファイルのエクスポート（設定変更後）
+
+1. `⌘,` で設定を開き、`Profiles` を選択
+2. エクスポートしたいプロファイルを選択
+3. 左下の `Other Actions...` をクリック
+4. `Save Profile as JSON...` を選択
+5. `~/dotfiles/config/iTerm2/Default.json` に保存（上書き）
+6. Git でコミット
 
 # Raycastのセットアップ
 
