@@ -439,178 +439,7 @@ echo "Hello, World!"
 | fullOutput | 新しいウィンドウで結果を表示 |
 | silent | 結果を表示せず実行 |
 
-### 7.5 サンプルスクリプト集
-
-#### 現在時刻を表示
-
-```bash
-#!/bin/bash
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Current Time
-# @raycast.mode inline
-# @raycast.refreshTime 1s
-
-# Optional parameters:
-# @raycast.icon 🕐
-# @raycast.packageName Utils
-
-date "+%Y-%m-%d %H:%M:%S"
-```
-
-#### Gitブランチ名をコピー
-
-```bash
-#!/bin/bash
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Copy Git Branch
-# @raycast.mode silent
-
-# Optional parameters:
-# @raycast.icon 🌿
-# @raycast.packageName Git
-
-branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-
-if [ -n "$branch" ]; then
-  echo -n "$branch" | pbcopy
-  echo "Copied: $branch"
-else
-  echo "Not a git repository"
-fi
-```
-
-#### IPアドレスを表示
-
-```bash
-#!/bin/bash
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Show IP Address
-# @raycast.mode inline
-# @raycast.refreshTime 1h
-
-# Optional parameters:
-# @raycast.icon 🌐
-# @raycast.packageName Network
-
-local_ip=$(ipconfig getifaddr en0 2>/dev/null || echo "N/A")
-public_ip=$(curl -s ifconfig.me 2>/dev/null || echo "N/A")
-
-echo "Local: $local_ip | Public: $public_ip"
-```
-
-#### Node.jsプロジェクト作成
-
-```bash
-#!/bin/bash
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Create Node Project
-# @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon 📦
-# @raycast.packageName Dev
-# @raycast.argument1 { "type": "text", "placeholder": "Project Name" }
-
-PROJECT_NAME=$1
-PROJECT_DIR=~/dev/$PROJECT_NAME
-
-if [ -z "$PROJECT_NAME" ]; then
-  echo "Error: Project name is required"
-  exit 1
-fi
-
-if [ -d "$PROJECT_DIR" ]; then
-  echo "Error: Directory already exists"
-  exit 1
-fi
-
-mkdir -p "$PROJECT_DIR"
-cd "$PROJECT_DIR"
-
-npm init -y
-echo "node_modules/" > .gitignore
-git init
-
-echo "✅ Created: $PROJECT_DIR"
-echo "📁 Contents:"
-ls -la
-
-code "$PROJECT_DIR"
-```
-
-#### 開発開始ルーティン
-
-```bash
-#!/bin/bash
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title Start Dev Day
-# @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon 🚀
-# @raycast.packageName Workflow
-
-echo "🌅 Starting development environment..."
-
-# 必要なアプリを起動
-echo "📱 Opening apps..."
-open -a "Visual Studio Code"
-sleep 1
-open -a "Google Chrome"
-sleep 1
-open -a "iTerm"
-sleep 1
-open -a "Slack"
-
-# よく使うURLを開く
-echo "🌐 Opening websites..."
-open "https://github.com"
-
-echo ""
-echo "✅ Development environment ready!"
-echo "📝 Today's date: $(date '+%Y-%m-%d %A')"
-```
-
-#### 開発終了クリーンアップ
-
-```bash
-#!/bin/bash
-
-# Required parameters:
-# @raycast.schemaVersion 1
-# @raycast.title End Dev Day
-# @raycast.mode fullOutput
-
-# Optional parameters:
-# @raycast.icon 🌙
-# @raycast.packageName Workflow
-
-echo "🌙 Ending development day..."
-
-# ゴミ箱を空にする
-echo "🗑️ Emptying trash..."
-rm -rf ~/.Trash/* 2>/dev/null
-
-# Downloadsフォルダの古いファイルを削除（7日以上前）
-echo "📁 Cleaning Downloads folder..."
-find ~/Downloads -mtime +7 -delete 2>/dev/null
-
-echo ""
-echo "✅ Cleanup complete!"
-echo "👋 Have a good evening!"
-```
-
-### 7.6 スクリプトへの実行権限付与
+### 7.5 スクリプトへの実行権限付与
 
 作成したスクリプトには実行権限が必要です。
 
@@ -639,8 +468,6 @@ chmod +x ~/.raycast-scripts/スクリプト名.sh
 | `Ctrl + Option + →` | ウィンドウ右半分 |
 | `Ctrl + Option + ↑` | ウィンドウ最大化 |
 | `Ctrl + Option + C` | ウィンドウ中央 |
-| `Ctrl + Cmd + D` | Start Dev Day |
-| `Ctrl + Cmd + G` | Copy Git Branch |
 
 ### 8.2 Quicklinks一覧
 
@@ -664,17 +491,6 @@ chmod +x ~/.raycast-scripts/スクリプト名.sh
 | GitHub | GitHub連携 |
 | iTerm | iTerm2連携 |
 | Browser Tabs | ブラウザタブ検索 |
-
-### 8.4 スクリプトコマンド一覧
-
-| スクリプト | 機能 |
-|-----------|------|
-| current-time.sh | 現在時刻を表示 |
-| copy-git-branch.sh | Gitブランチ名をコピー |
-| show-ip.sh | IPアドレスを表示 |
-| create-node-project.sh | Node.jsプロジェクト作成 |
-| start-dev-day.sh | 開発開始ルーティン |
-| end-dev-day.sh | 開発終了クリーンアップ |
 
 ---
 
