@@ -30,6 +30,8 @@ brew install terminal-notifier
 # brew install --cask kap
 # brew install --cask ghostty
 brew install --cask raycast
+brew install ripgrep
+
 
 git lfs install
 
