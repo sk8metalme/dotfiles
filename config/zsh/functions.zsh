@@ -283,3 +283,29 @@ bm-widget() {
   zle reset-prompt
 }
 zle -N bm-widget
+
+gh-search() {
+  local query="$*"
+
+  if [ -z "$query" ]; then
+    printf 'GitHub Search > '
+    IFS= read -r query
+  fi
+
+  [ -z "$query" ] && return
+
+  local encoded_query url
+  encoded_query=$(python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1]))' "$query")
+  url="https://github.com/search?q=${encoded_query}&type=repositories"
+
+  echo "Opening: $url"
+  cmux browser open-split "$url"
+}
+
+gh-search-widget() {
+  zle -I
+  gh-search "$LBUFFER"
+  BUFFER=""
+  zle reset-prompt
+}
+zle -N gh-search-widget
