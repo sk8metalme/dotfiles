@@ -63,3 +63,8 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 
 # Added by Antigravity
 export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/arigatatsuya/.lmstudio/bin"
+# End of LM Studio CLI section
+
