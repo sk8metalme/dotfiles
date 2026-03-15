@@ -18,3 +18,6 @@ bindkey '^t' fzf-cdr
 bindkey '^G' fzf-ghq
 
 bindkey '^X' zsh_convert_all
+
+# ブックマーク picker
+bindkey '^]' bm-widget

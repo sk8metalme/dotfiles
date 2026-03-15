@@ -49,3 +49,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export GHQ_ROOT="$HOME/Work/git"
 
 export PATH="$HOME/bin:$PATH"
+
+
+# ------------------------------------------------------------------------
+# knowledge
+# ------------------------------------------------------------------------
+export KNOWLEDGE_REPO_PATH="$HOME/Work/git/github.com/sk8metalme/worklog"
+export KNOWLEDGE_REPO_URL="https://github.com/sk8metalme/worklog"

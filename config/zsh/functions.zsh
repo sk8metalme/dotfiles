@@ -227,3 +227,59 @@ function git_stash_list_action() {
             ;;
     esac
 }
+
+# ~/.zshrc に追加
+bm() {
+  local bookmark_rows selected
+  bookmark_rows=$(python3 - << 'PYEOF'
+import json, os, glob
+
+bm_files = glob.glob(os.path.expanduser(
+    "~/Library/Application Support/Google/Chrome/*/Bookmarks"
+))
+
+def find(node, results):
+    if node.get("type") == "url":
+        name = node.get("name", "")
+        url = node.get("url", "")
+        display_name = name or url
+        results.append(f"{display_name}\t{url}")
+    for child in node.get("children", []):
+        find(child, results)
+
+results = []
+for bm_path in bm_files:
+    try:
+        with open(bm_path) as f:
+            data = json.load(f)
+        for root in data["roots"].values():
+            find(root, results)
+    except:
+        pass
+
+print("\n".join(results))
+PYEOF
+  )
+
+  selected=$(printf '%s\n' "$bookmark_rows" | fzf \
+      --delimiter='\t' \
+      --with-nth=1 \
+      --preview='echo {2}' \
+      --preview-window=down:1 \
+      --prompt='🔖 Bookmark > ' \
+      --height=40%
+  )
+
+  [ -z "$selected" ] && return
+  local url
+  url=$(echo "$selected" | cut -f2)
+  echo "Opening: $url"
+  cmux browser open-split "$url"
+}
+
+bm-widget() {
+  zle -I
+  bm
+  zle reset-prompt
+}
+zle -N bm-widget
