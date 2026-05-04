@@ -22,5 +22,5 @@ bindkey '^X' zsh_convert_all
 # ブックマーク picker
 bindkey '^]' bm-widget
 
-# GitHub repository search (Option + ])
-bindkey '^[]' gh-search-widget
+# GitHub repository search (Ctrl-x g)
+bindkey '^Xg' gh-search-widget

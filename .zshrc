@@ -11,7 +11,22 @@ if [[ "$AGENT_MODE" != "true" ]]; then
   # ------------------------------------------------------------------------
   # oh-my-zsh
   # ------------------------------------------------------------------------
-  source $DOTFILES_DIR/config/zsh/oh-my-zsh.zsh
+  if [ -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
+    export ZSH="$HOME/.oh-my-zsh"
+    ZSH_THEME="robbyrussell"
+    plugins=(git web-search)
+    source "$ZSH/oh-my-zsh.sh"
+  fi
+
+  if type brew &>/dev/null; then
+    if [ -f "$(brew --prefix zsh-autosuggestions 2>/dev/null)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+      source "$(brew --prefix zsh-autosuggestions)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    fi
+
+    if [ -f "$(brew --prefix zsh-syntax-highlighting 2>/dev/null)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+      source "$(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    fi
+  fi
   
   # ------------------------------------------------------------------------
   # alias
@@ -52,7 +67,7 @@ if [[ "$AGENT_MODE" != "true" ]]; then
   # The next line enables shell command completion for gcloud.
   if [ -f "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
   
-  . "$HOME/.local/bin/env"
+  [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
   
   [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 fi

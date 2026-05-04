@@ -107,6 +107,23 @@ function open-my-repos() {
 # ------------------------------------------------------------------------
 # oringinal
 # ------------------------------------------------------------------------
+window-layout() {
+    local layout_name="${1:-work}"
+    local hs_cli="/Applications/Hammerspoon.app/Contents/Frameworks/hs/hs"
+
+    if [[ ! "$layout_name" =~ '^[A-Za-z0-9_-]+$' ]]; then
+        echo "Invalid layout name: $layout_name" >&2
+        return 1
+    fi
+
+    if ! pgrep -x "Hammerspoon" >/dev/null 2>&1; then
+        open -g -a Hammerspoon
+        sleep 1
+    fi
+
+    "$hs_cli" -A -q -c "return queueWindowLayout(\"${layout_name}\")"
+}
+
 # 全角文字を半角文字に変換する関数
 function zsh_convert_to_halfwidth() {
     # 入力された全角文字を半角文字に変換する
