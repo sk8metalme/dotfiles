@@ -1,8 +1,8 @@
 .gitconfig-personal
 .gitconfig-work
 .gitconfig
-.DS-store
+**/.DS_Store
 .vscode/
-.DS_Store
-config/.DS_Store
 .cursor/
+config/zsh/env.local.zsh
+config/raycast/settings.rayconfig

@@ -107,6 +107,23 @@ function open-my-repos() {
 # ------------------------------------------------------------------------
 # oringinal
 # ------------------------------------------------------------------------
+window-layout() {
+    local layout_name="${1:-work}"
+    local hs_cli="/Applications/Hammerspoon.app/Contents/Frameworks/hs/hs"
+
+    if [[ ! "$layout_name" =~ '^[A-Za-z0-9_-]+$' ]]; then
+        echo "Invalid layout name: $layout_name" >&2
+        return 1
+    fi
+
+    if ! pgrep -x "Hammerspoon" >/dev/null 2>&1; then
+        open -g -a Hammerspoon
+        sleep 1
+    fi
+
+    "$hs_cli" -A -q -c "return queueWindowLayout(\"${layout_name}\")"
+}
+
 # 全角文字を半角文字に変換する関数
 function zsh_convert_to_halfwidth() {
     # 入力された全角文字を半角文字に変換する
@@ -283,3 +300,29 @@ bm-widget() {
   zle reset-prompt
 }
 zle -N bm-widget
+
+gh-search() {
+  local query="$*"
+
+  if [ -z "$query" ]; then
+    printf 'GitHub Search > '
+    IFS= read -r query
+  fi
+
+  [ -z "$query" ] && return
+
+  local encoded_query url
+  encoded_query=$(python3 -c 'import sys, urllib.parse; print(urllib.parse.quote(sys.argv[1]))' "$query")
+  url="https://github.com/search?q=${encoded_query}&type=repositories"
+
+  echo "Opening: $url"
+  cmux browser open-split "$url"
+}
+
+gh-search-widget() {
+  zle -I
+  gh-search "$LBUFFER"
+  BUFFER=""
+  zle reset-prompt
+}
+zle -N gh-search-widget

@@ -35,12 +35,12 @@ alias gsla='git_stash_list_action'
 # claude
 # ------------------------------------------------------------------------
 alias yolo="ENABLE_TOOL_SEARCH=true ENABLE_EXPERIMENTAL_MCP_CLI=false claude --dangerously-skip-permissions"
+alias wl='window-layout'
 
 # ------------------------------------------------------------------------
 # jujutsu
 # ------------------------------------------------------------------------
 alias jja='jj config list |  grep --color=auto alias'
 alias ljj='lazyjj'
-
 
 

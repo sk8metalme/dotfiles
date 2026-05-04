@@ -1,312 +1,221 @@
-# dotfilesのディレクトリ構造
-ホームディレクトリ直下にクローンすることをおすすめします。（それ以外にクローンする時は、dotfiles/zshenvの以下を編集してください。）
+# dotfiles
 
-コードの解説は[こちら](https://qiita.com/Rockreeee/items/e59b1c4c764d4079c657)
+macOS 環境を Nix / nix-darwin / Home Manager で管理するための dotfiles です。
 
-```zsh
-~/dotfiles/
-├── config/
-│   ├── hammerspoon/            # Hammerspoon（ウィンドウ管理・自動化ツール）設定
-│   │   └── init.lua            # Hammerspoon設定ファイル
-│   ├── iTerm2/                 # iTerm2（ターミナルエミュレータ）設定
-│   │   └── Default.json        # iTerm2プロファイル設定
-│   ├── raycast/                # Raycast（ランチャー・生産性向上ツール）設定
-│   │   ├── README.md           # Raycast設定の説明
-│   │   └── settings.rayconfig  # Raycast設定ファイル
-│   ├── vscode/
-│   │   ├── extensions          # vscodeの拡張機能一覧
-│   │   ├── keybindings.json    # vscodeのキーバインド
-│   │   └── settings.json       # vscodeの設定ファイル
-│   └── zsh/
-│       ├── alias.zsh           # エイリアスの定義
-│       ├── bindkey.zsh         # キーバインドの定義
-│       ├── completion.zsh      # 補完設定の定義
-│       ├── env.zsh             # 環境変数の設定
-│       ├── functions.zsh       # 関数の定義
-│       ├── oh-my-zsh.zsh       # oh-my-zshの設定
-│       └── wordstyle.zsh       # 単語スタイルの設定
-├── setup-scripts/
-│   ├── install-apps.sh         # アプリのインストール
-│   ├── install-brew-package.sh # homebrewのパッケージインストール
-│   ├── install-bun.sh          # Bunランタイムのインストール
-│   ├── install-oh-my-zsh.sh    # oh-my-zshのインストール
-│   ├── setup-hammerspoon.sh    # Hammerspoonのセットアップ
-│   ├── setup-MacOS.sh          # mac設定のセットアップ
-│   ├── setup-vscode.sh         # vscodeのセットアップ
-│   └── setup-zsh.sh            # zshのセットアップ
-├── CLAUDE.md                   # Claude Code用プロジェクト指示書
-├── .gitconfig                  # Gitの設定ファイル
-├── .zshenv                     # 全シェルで適用される設定
-└── .zshrc                      # インタラクティブシェル用の設定
-```
+## 前提条件
 
-
-# zsh環境のセットアップ
-## 必要なhomebrewパッケージをインストール
-```zsh
-# 実行権限付与
-chmod +x ~/dotfiles/setup-scripts/install-brew-package.sh
-# 実行
-~/dotfiles/setup-scripts/install-brew-package.sh
-```
-
-## oh-my-zshをインストール
-```zsh
-# 実行権限付与
-chmod +x ~/dotfiles/setup-scripts/install-oh-my-zsh.sh
-# 実行
-~/dotfiles/setup-scripts/install-oh-my-zsh.sh
-```
-
-## zshのセットアップ
-```zsh
-# 実行権限付与
-chmod +x ~/dotfiles/setup-scripts/setup-zsh.sh
-# 実行
-~/dotfiles/setup-scripts/setup-zsh.sh
-```
-
-# プログラミングフォントのインストール
-
-`install-brew-package.sh` を実行すると、以下のフォントが自動インストールされます：
-
-- **JetBrains Mono**: 合字対応のプログラミングフォント
-- **HackGen**: 日本語に最適化されたプログラミングフォント
-- **Ricty Diminished**: 日本語プログラミングフォント
-
-VS Codeの設定 (`config/vscode/settings.json`) でこれらのフォントが使用されます。
-
-
-# ghqのセットアップ
-
-ghqはGitリポジトリを一元管理するツールです。fzfと連携してインタラクティブにリポジトリを移動できます。
-
-## 設定内容
-- **GHQ_ROOT**: `~/Work/git`
-- **キーバインド**: `Ctrl+G` でfzfを使ったリポジトリ選択
+- macOS（Apple Silicon / aarch64-darwin）
+- [Determinate Nix インストーラー](https://determinate.systems/products/determinate-nix-installer/) で Nix をインストール済み
+  - 標準の Nix インストーラーではなく Determinate 版を使用すること
+  - `darwin/configuration.nix` で `nix.enable = false` を設定しているため、Nix の管理は Determinate インストーラー側に委ねている
+- Homebrew インストール済み（GUI アプリ / フォント / cask 配布ツール向け）
+- Xcode Command Line Tools インストール済み
 
 ## 初回セットアップ
 
-### 1. リポジトリルートディレクトリの作成
 ```zsh
-mkdir -p ~/Work/git
+# 1. Determinate Nix インストーラーで Nix をインストール
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+# 2. ターミナルを再起動後、リポジトリをクローン
+git clone https://github.com/sk8metalme/dotfiles ~/dotfiles
+cd ~/dotfiles
+
+# 3. darwin-rebuild switch で環境を構築
+sudo darwin-rebuild switch --flake ".#$(whoami)" --impure
 ```
 
-### 2. ghqのインストール（install-brew-package.shで自動実行済み）
-```zsh
-# すでに install-brew-package.sh を実行済みの場合は不要
-brew install ghq
-```
-
-## 使い方
-
-### リポジトリの取得
-```zsh
-# GitHubリポジトリをclone
-ghq get https://github.com/user/repo
-
-# または短縮形
-ghq get user/repo
-```
-
-### リポジトリへの移動
-```zsh
-# Ctrl+G を押すとfzfでリポジトリ一覧が表示されます
-# ↑↓キーで選択してEnterを押すとそのリポジトリに移動します
-# プレビューでREADME.mdが表示されます
-```
-
-### リポジトリ一覧の表示
-```zsh
-ghq list
-```
-
-### リポジトリのパスを取得
-```zsh
-ghq list -p
-ghq root  # ルートディレクトリのパスを表示
-```
-
-## 依存関係
-- `ghq`: Gitリポジトリ管理ツール（install-brew-package.shでインストール）
-- `fzf`: ファジーファインダー（install-brew-package.shでインストール済み）
-- `bat`: READMEプレビュー用（install-brew-package.shでインストール済み）
-
-# Macのセットアップ
-```zsh
-# 実行権限付与
-chmod +x ~/dotfiles/setup-scripts/setup-MacOS.sh
-# 実行
-~/dotfiles/setup-scripts/setup-MacOS.sh
-```
-
-# アプリをインストール
-```zsh
-# 実行権限付与
-chmod +x ~/dotfiles/setup-scripts/install-apps.sh
-# 実行
-~/dotfiles/setup-scripts/install-apps.sh
-```
-
-# Vscodeのセットアップ
-```zsh
-# 実行権限付与
-chmod +x ~/dotfiles/setup-scripts/setup-vscode.sh
-# 実行
-~/dotfiles/setup-scripts/setup-vscode.sh
-```
-
-
-# iTerm2のセットアップ
-
-iTerm2 は macOS 用の高機能ターミナルエミュレータです。
-
-## iTerm2 のインストール
+事前確認だけ行う場合:
 
 ```zsh
-brew install --cask iterm2
+nix build --dry-run ".#darwinConfigurations.$(whoami).system" --impure
 ```
 
-## プロファイルのインポート
+## Flake 構成
 
-1. iTerm2 を起動
-2. `⌘,` で設定を開き、`Profiles` を選択
-3. 左下の `Other Actions...` をクリック
-4. `Import JSON Profiles...` を選択
-5. `~/dotfiles/config/iTerm2/Default.json` を選択
+```text
+flake.nix
+├── inputs
+│   ├── nixpkgs (unstable)       パッケージ定義
+│   ├── nix-darwin                macOS システム設定
+│   └── home-manager              ユーザー環境管理
+└── outputs
+    └── darwinConfigurations.<username>
+        ├── darwin/configuration.nix   macOS システム設定・Homebrew 管理
+        └── home/default.nix           ユーザーパッケージ・zsh・シンボリックリンク管理
+```
 
-## プロファイルのエクスポート（設定変更後）
+## 管理対象
 
-1. `⌘,` で設定を開き、`Profiles` を選択
-2. エクスポートしたいプロファイルを選択
-3. 左下の `Other Actions...` をクリック
-4. `Save Profile as JSON...` を選択
-5. `~/dotfiles/config/iTerm2/Default.json` に保存（上書き）
-6. Git でコミット
+- CLI ツール: Home Manager の `home.packages` で管理します。
+- GUI アプリ / フォント / cask系バイナリ: nix-darwin の `homebrew.casks` で管理します。
+- macOS defaults: nix-darwin の `system.defaults` で管理します。
+- zsh: Home Manager の `programs.zsh` と `config/zsh/*.zsh` で管理します。
+- VS Code: `config/vscode/settings.json`、`keybindings.json`、`extensions` を管理します。
+- Zed: `config/zed/settings.json` を管理します。
+- Hammerspoon: `config/hammerspoon/init.lua` を管理します。
+- iTerm2: `config/iTerm2/Default.json` を Dynamic Profile として管理します。
 
-# Raycastのセットアップ
+## ディレクトリ構成
 
-Raycast は macOS 用の高速ランチャー兼生産性向上ツールです。アプリケーションの起動、検索、スニペット、ショートカットなどを一元管理できます。
+```text
+~/dotfiles/
+├── config/
+│   ├── hammerspoon/
+│   ├── iTerm2/
+│   ├── raycast/
+│   ├── vscode/
+│   └── zsh/
+├── darwin/
+│   └── configuration.nix
+├── home/
+│   └── default.nix
+├── flake.lock
+├── flake.nix
+├── .gitconfig
+├── .zshenv
+└── .zshrc
+```
 
-## Raycast のインストール
+## 設定の追加・変更
+
+### CLI ツールを追加する
+
+`home/default.nix` の `home.packages` に追記します。
+
+```nix
+home.packages = with pkgs; [
+  ripgrep  # 既存
+  httpie   # 追加
+];
+```
+
+### GUI アプリ / フォントを追加する
+
+`darwin/configuration.nix` の `homebrew.casks` に追記します。
+
+```nix
+casks = [
+  "iterm2"  # 既存
+  "figma"   # 追加
+];
+```
+
+### macOS システム設定を変更する
+
+`darwin/configuration.nix` の `system.defaults` を編集します。
+
+```nix
+system.defaults = {
+  dock = {
+    autohide = true;  # 既存
+    tilesize = 48;    # 変更
+  };
+};
+```
+
+### 変更を適用する
+
+編集後は常にこのコマンドで反映します。
 
 ```zsh
-# Homebrewでインストール
-brew install --cask raycast
-
-# または公式サイトからダウンロード
-# https://www.raycast.com/
+sudo darwin-rebuild switch --flake ".#$(whoami)" --impure
 ```
 
-## 設定のセットアップ
+## PATH 優先度
 
-Raycastの設定は手動でインポートする必要があります。
+`.zshenv` で以下の順序に設定しています。同名コマンドが複数存在する場合、上位が優先されます。
 
-## 設定の管理
+```
+Nix 管理ツール  >  Cargo (.cargo/bin)  >  Homebrew (/opt/homebrew/bin)
+```
 
-### 設定のインポート（新しいマシンへの移行時）
+## ローカル専用設定
 
-1. Raycast Settings を開く（`⌘,`）
-2. `Advanced` タブを選択
-3. `Import Configuration` をクリック
-4. `config/raycast/settings.rayconfig` を選択
+公開したくない環境変数やローカルパスは、gitignore 済みの `config/zsh/env.local.zsh` に置きます。
 
-### 設定のエクスポート（設定変更後）
-
-1. Raycast Settings を開く（`⌘,`）
-2. `Advanced` タブを選択
-3. `Export Configuration` をクリック
-4. `config/raycast/settings.rayconfig` に保存（上書き）
-5. Git でコミット
-
-## Raycast の主な機能
-
-- **ランチャー**: アプリケーションやファイルを素早く起動
-- **Snippets**: テキスト展開（Espanso と似た機能）
-- **Quicklinks**: よく使う URL への素早いアクセス
-- **Extensions**: 豊富な拡張機能エコシステム
-- **Clipboard History**: クリップボード履歴管理
-- **Window Management**: ウィンドウ配置の管理
-
-## Tips
-
-- デフォルトのホットキー: `⌥ Space`（Option + Space）
-- Extensions Store から便利な拡張機能を追加可能
-- Raycast AI を有効にすると、AI アシスタント機能も利用可能
-
-# Hammerspoon（ウィンドウ管理・自動化ツール）の設定
-
-## Hammerspoonのセットアップ
 ```zsh
-# 実行権限付与
-chmod +x ~/dotfiles/setup-scripts/setup-hammerspoon.sh
-# 実行
-~/dotfiles/setup-scripts/setup-hammerspoon.sh
+cp config/zsh/env.local.example.zsh config/zsh/env.local.zsh
+$EDITOR config/zsh/env.local.zsh
 ```
 
-## Hammerspoon設定の詳細
-### 初回起動時の設定
-1. セットアップスクリプト実行後、Hammerspoonを起動してください
-   ```bash
-   open /Applications/Hammerspoon.app
-   ```
-2. アクセシビリティ権限の許可を求められるので、システム設定から許可してください
-   - システム設定 > プライバシーとセキュリティ > アクセシビリティ
-3. Hammerspoonが自動的に設定ファイルを読み込みます
+`config/zsh/env.zsh` が存在確認してから読み込むため、ファイルがなくても問題ありません。
 
-### 主な機能
-#### 右クリックスクロール機能
-マウスの右ボタンをドラッグすることでスムーズなスクロールが可能です：
-- **右クリック + ドラッグ**: スクロール操作
-- **右クリック（ドラッグせず）**: 通常の右クリックメニュー表示
+## Homebrew の扱い
 
-この機能により、トラックパッドを使わずにマウスだけで快適にスクロールできます。
+Homebrew は GUI アプリ、フォント、cask 配布のツール用に限定して使います。
+CLI は原則 `home/default.nix` の `home.packages` へ追加します。
 
-### 設定ファイルの編集
-設定をカスタマイズする場合は、以下のファイルを編集してください：
-```bash
-# 設定ファイルを編集
-code ~/dotfiles/config/hammerspoon/init.lua
+既存の Homebrew formula は移行中のため即時削除しません。不要になったものは、Nix 側で動作確認してから手動で整理します。
 
-# 編集後、Hammerspoon内でリロードするか、再起動してください
+```zsh
+brew list --formula
+brew uninstall <formula>
 ```
 
-# 重要な設定事項
+## VS Code
 
-## 個人設定の調整
+設定ファイルと拡張機能一覧は Nix で反映します。
 
-### GitHub設定
-`open-my-repos`関数でGitHubリポジトリを参照する場合、以下のいずれかを設定してください：
+- 設定: `config/vscode/settings.json`
+- キーバインド: `config/vscode/keybindings.json`
+- 拡張機能: `config/vscode/extensions`（1行1 extension ID）
 
-#### 方法1: 環境変数で設定（推奨）
-```bash
-# config/zsh/env.zshで以下のコメントアウトを解除し、実際のユーザー名に変更
-export GITHUB_USERNAME="your-github-username"
+拡張機能を追加したい場合は `config/vscode/extensions` に extension ID を追記してから `darwin-rebuild switch` を実行します。
+現在インストール済みの拡張機能をファイルに反映する場合:
+
+```zsh
+code --list-extensions > config/vscode/extensions
 ```
 
-#### 方法2: Git configを使用
-```bash
-# グローバルにGitユーザー名を設定（GitHub APIで使用されます）
-git config --global user.name "your-github-username"
+## Hammerspoon
+
+Hammerspoon の設定は `config/hammerspoon/init.lua` です。
+ウィンドウレイアウトは `window-layout` または `wl` で実行できます。
+
+```zsh
+window-layout work
+wl focus
 ```
 
+Hammerspoon のレポートファイルはユーザー専用の cache 配下に書き込みます。
+
+## Raycast
+
+Raycast のアプリ本体は nix-darwin の Homebrew cask で管理します。
+設定ファイル `config/raycast/settings.rayconfig` は Raycast 側で手動 import / export します。
 
 ## トラブルシューティング
 
-### よくある問題と解決方法
+### darwin-rebuild が失敗する場合
 
-#### `open-my-repos`関数でエラーが出る場合
-```bash
-Error: GitHub username not found. Please set GITHUB_USERNAME environment variable or configure git user.name
+```zsh
+# ドライランで原因を確認
+nix build --dry-run ".#darwinConfigurations.$(whoami).system" --impure
 ```
-**解決方法**: 上記の「GitHub設定」セクションを参照して、GitHubユーザー名を設定してください。
 
-# おすすめサイト
-iterm2の設定：
-https://qiita.com/ruwatana/items/8d9c174250061721ad11
+### Nix ストアのディスク容量を削減したい
 
-# トラックボール　カーソルスクロール
-https://qiita.com/zyyx-matsushita/items/070f7e9d021ac099b5e2
+```zsh
+nix-collect-garbage -d
+sudo nix-collect-garbage -d
+```
 
-# インストールアプリ
-https://clipy-app.com/
+### flake.lock を最新に更新する
+
+```zsh
+nix flake update
+sudo darwin-rebuild switch --flake ".#$(whoami)" --impure
+```
+
+### Homebrew が認識されない場合
+
+```zsh
+# PATH を確認（Homebrew は末尾に追加される設計）
+echo $PATH | tr ':' '\n'
+```
+
+## 設定の追加方針
+
+新しい設定は、必ず `darwin/configuration.nix` または `home/default.nix` に追加してください。
+手動インストールや個別スクリプトによるセットアップは行いません。
