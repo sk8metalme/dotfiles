@@ -1,0 +1,83 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": "Catppuccin Mocha",
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "vim_mode": true,
+  "terminal": {
+    "font_size": 16.0,
+    "font_family": "JetBrains Mono",
+    "font_fallbacks": [
+      "HackGen Console",
+      "Menlo",
+      "Monaco"
+    ],
+    "cursor_shape": "bar",
+    "blinking": "on",
+    "copy_on_select": true,
+    "max_scroll_history_lines": 10000
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "base_keymap": "VSCode",
+  "preview_tabs": {
+    "enabled": true
+  },
+  "gutter": {
+    "line_numbers": true
+  },
+  "minimap": {
+    "show": "never"
+  },
+  "max_tabs": 10,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "buffer_font_fallbacks": [
+    "Ricty Diminished",
+    "HackGen Console",
+    "Menlo",
+    "Monaco",
+    "Courier New",
+    "monospace"
+  ],
+  "buffer_font_family": "JetBrains Mono",
+  "colorize_brackets": true,
+  "show_completions_on_input": true,
+  "auto_indent_on_paste": true,
+  "show_whitespaces": "selection",
+  "ensure_final_newline_on_save": true,
+  "wrap_guides": [
+    80,
+    120
+  ],
+  "hard_tabs": false,
+  "tab_size": 2,
+  "agent_servers": {
+    "codex-acp": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 20.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Macchiato",
+  },
+}
