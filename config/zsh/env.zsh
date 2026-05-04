@@ -1,17 +1,10 @@
-# ------------------------------------------------------------------------
-# nodenv
-# ------------------------------------------------------------------------
-export NODENV_ROOT="$HOME/.nodenv"
-export PATH="$NODENV_ROOT/bin:$PATH"
-if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 # claude code memory leak resolve
 export NODE_OPTIONS="--max-old-space-size=4096"
 
 # ------------------------------------------------------------------------
-# pyenv
+# pyenv (shim 機構に必要。バイナリ自体は Nix 管理)
 # ------------------------------------------------------------------------
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # ------------------------------------------------------------------------
@@ -24,32 +17,11 @@ export PATH="/opt/homebrew/Cellar/libpng/1.6.50/bin:$PATH"
 export PATH="/opt/homebrew/opt/jpeg/bin:$PATH"
 
 # ------------------------------------------------------------------------
-# java 
-# ------------------------------------------------------------------------
-export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
-
-# ------------------------------------------------------------------------
-# GitHub
-# ------------------------------------------------------------------------
-# GitHubユーザー名（functions.zshのopen-my-repos関数で使用）
-# 必要に応じて自分のGitHubユーザー名に変更してください
-# export GITHUB_USERNAME="your-github-username"
-
-# ------------------------------------------------------------------------
-# bun
-# ------------------------------------------------------------------------
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-# bun completions
-[ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
-
-# ------------------------------------------------------------------------
 # ghq
 # ------------------------------------------------------------------------
 export GHQ_ROOT="$HOME/Work/git"
 
 export PATH="$HOME/bin:$PATH"
-
 
 # ------------------------------------------------------------------------
 # knowledge

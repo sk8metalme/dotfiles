@@ -1,5 +1,5 @@
 {
-  description = "arigatatsuya's macOS configuration (nix-darwin + home-manager)";
+  description = "macOS configuration (nix-darwin + home-manager)";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -13,8 +13,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }: {
-    darwinConfigurations.arigatatsuya = nix-darwin.lib.darwinSystem {
+  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
+  let
+    username = builtins.getEnv "USER";
+  in {
+    darwinConfigurations.${username} = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         ./darwin/configuration.nix
@@ -22,9 +25,11 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.arigatatsuya = import ./home;
+          home-manager.extraSpecialArgs = { inherit username; };
+          home-manager.users.${username} = import ./home;
         }
       ];
+      specialArgs = { inherit username; };
     };
   };
 }
